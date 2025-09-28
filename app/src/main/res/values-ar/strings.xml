@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">كوريو</string>
     <string name="lives">حياة</string>
     <string name="points">نقاط</string>
     <string name="awards">جوائز</string>
