@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="QuiroButtons">
+        <attr name="buttonType" format="enum">
+            <enum name="primary_big" value="0"/>
+            <enum name="primary_small" value="1"/>
+            <enum name="primary_disabled" value="2"/>
+            <enum name="outlined_enabled" value="3"/>
+            <enum name="outlined_disabled" value="4"/>
+            <enum name="game_text_enabled" value="5"/>
+            <enum name="game_text_disabled" value="6"/>
+        </attr>
+        <attr name="onButtonClick" format="reference" />
+    </declare-styleable>
+</resources>
