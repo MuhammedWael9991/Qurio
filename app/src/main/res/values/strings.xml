@@ -3,4 +3,6 @@
     <string name="lives">lives</string>
     <string name="points">Points</string>
     <string name="awards">Awards</string>
+    <string name="submit">submit</string>
+    <string name="play_now">Play Now</string>
 </resources>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="lives">lives</string>
-    <string name="points">Points</string>
-    <string name="awards">Awards</string>
+    <string name="lives">حياة</string>
+    <string name="points">نقاط</string>
+    <string name="awards">جوائز</string>
+    <string name="submit">إرسال</string>
+    <string name="play_now">العب الآن</string>
 </resources>
