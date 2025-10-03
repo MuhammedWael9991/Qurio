@@ -5,7 +5,9 @@ import com.qurio.QurioApp
 import com.qurio.di.modules.AppModule
 import com.qurio.di.modules.DatabaseModule
 import com.qurio.di.modules.NetworkModule
+import com.qurio.di.modules.PresentersModule
 import com.qurio.di.modules.RepositoryModule
+import com.qurio.ui.screen.onbording.OnboardingFragment
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -16,15 +18,15 @@ import javax.inject.Singleton
         AppModule::class,
         NetworkModule::class,
         RepositoryModule::class,
-        DatabaseModule::class
+        DatabaseModule::class,
+        PresentersModule::class
     ]
 )
 interface AppComponent {
     fun inject(app: QurioApp)
 
-//     fragments/activities that need injection:
-    //fun inject(onboardingFragment: onboarding.OnboardingFragment)
-//     fun inject(otherFragment: ...)
+    //     fragments/activities that need injection:
+    fun inject(onboardingFragment: OnboardingFragment)
 
     @Component.Builder
     interface Builder {
