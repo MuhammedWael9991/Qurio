@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import com.qurio.QurioApp
 import com.qurio.R
 import com.qurio.databinding.FragmentOnbordingBinding
@@ -35,6 +36,10 @@ class OnboardingFragment
 
         binding.previousIndicator.setOnClickListener {
             presenter.onPreviousClicked()
+        }
+
+        binding.swapUpButton.setOnSwapCompleteListener {
+            Toast.makeText(context, "Swap up completed!", Toast.LENGTH_SHORT).show()
         }
 
         presenter.start()
