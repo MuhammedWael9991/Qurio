@@ -93,7 +93,30 @@
             app:layout_constraintBottom_toBottomOf="parent"
             />
 
+        <com.qurio.ui.components.SwapUpButton
+            android:id="@+id/swap_up_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/swipe_up_text"
+            android:layout_marginBottom="8dp"
+            />
 
+        <com.qurio.ui.components.GradientTextView
+            android:id="@+id/swipe_up_text"
+            android:layout_width="120dp"
+            android:layout_height="22dp"
+            android:text="@string/swipe_up_to_play"
+            android:textAppearance="@style/swipe_up_to"
+            style="@style/Typography.label.medium"
+            android:lineSpacingExtra="5sp"
+            android:gravity="center_horizontal|center_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="24dp"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
