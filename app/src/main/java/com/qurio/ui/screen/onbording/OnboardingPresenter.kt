@@ -1,0 +1,62 @@
+package com.qurio.ui.screen.onbording
+
+import com.qurio.R
+import jakarta.inject.Inject
+
+class OnboardingPresenter @Inject constructor() : OnboardingContract.Presenter {
+
+    private var view: OnboardingContract.View? = null
+
+    private val pages = listOf(
+        OnboardingPage(
+            title = "Welcome to Qurio",
+            description = "Welcome to the world of Qurio, where questions spark curiosity and prizes await the smartest. Ready to begin the challenge?",
+            imageRes = R.drawable.brain
+        ),
+        OnboardingPage(
+            title = "Choose your character",
+            description = "Each hero has their own unique style!\n" +
+                    "Choose from unique characters and start your adventure in your own style.",
+            imageRes = R.drawable.avatar_onbording
+        ),
+        OnboardingPage(
+            title = "Challenge and win",
+            description = "Answer quickly, earn points, and share with your friends!\n" +
+                    "Each trivia category is a new experience.",
+            imageRes = R.drawable.crown_onbording
+        ),
+        OnboardingPage(
+            title = "Collect them all!",
+            description = "Unlock characters, earn badges, and climb the leaderboards. Qurio is merciless, but you can handle it.",
+            imageRes = R.drawable.cup_onbording
+        )
+    )
+
+    private var currentIndex = 0
+
+    override fun attachView(view: OnboardingContract.View) {
+        this.view = view
+    }
+
+    override fun detachView() {
+        view = null
+    }
+
+    override fun onNextClicked() {
+        if (currentIndex < pages.size - 1) {
+            currentIndex++
+            view?.showPage(pages[currentIndex], true)
+        }
+    }
+
+    override fun onPreviousClicked() {
+        if (currentIndex > 0) {
+            currentIndex--
+            view?.showPage(pages[currentIndex], false)
+        }
+    }
+
+    override fun start() {
+        view?.showPage(pages[currentIndex], true)
+    }
+}
