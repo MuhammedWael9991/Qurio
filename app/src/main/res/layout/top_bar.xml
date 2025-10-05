@@ -143,6 +143,7 @@
             />
 
         <TextView
+            android:id="@+id/title"
             style="@style/Typography.title.medium"
             android:textColor="@color/Shade_Primary"
             android:text="Games"

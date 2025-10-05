@@ -31,6 +31,7 @@ class TopBar @JvmOverloads constructor(
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.TopBarView)
         val typeValue = typedArray.getInt(R.styleable.TopBarView_topBarType, 0)
         val type = Type.fromValue(typeValue)
+        val title = typedArray.getString(R.styleable.TopBarView_topBarTitle)
         typedArray.recycle()
 
         when (type) {
@@ -41,6 +42,7 @@ class TopBar @JvmOverloads constructor(
             Type.SECONDARY -> {
                 binding.topBarPrimary.visibility = GONE
                 binding.topBarSecondary.visibility = VISIBLE
+                binding.title.text = title ?: ""
             }
         }
 
