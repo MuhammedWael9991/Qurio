@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">كوريو</string>
+    <string name="app_name">كيوريو</string>
     <string name="lives">حياة</string>
     <string name="points">نقاط</string>
     <string name="awards">جوائز</string>
@@ -30,13 +30,13 @@
     <string name="one_star">نجمة واحدة</string>
     <string name="two_strars">نجمتان</string>
     <string name="three_stars">ثلاث نجوم</string>
-    <string name="welcome_to_the_world_of_qurio_where_questions_spark_curiosity_and_prizes_await_the_smartest_ready_to_begin_the_challenge">Welcome to the world of Qurio, where questions spark curiosity and prizes await the smartest. Ready to begin the challenge?</string>
-    <string name="welcome_to_quiro">Welcome to Quiro</string>
-    <string name="choose_your_character">Choose your character</string>
-    <string name="challenge_and_win">Challenge and win</string>
-    <string name="collect_them_all">Collect them all!</string>
-    <string name="unlock_characters_earn_badges_and_climb_the_leaderboards_qurio_is_merciless_but_you_can_handle_it">Unlock characters, earn badges, and climb the leaderboards. Qurio is merciless, but you can handle it.</string>
-    <string name="swipe_up_to_play">Swipe up to PLAY!</string>
-    <string name="all">All</string>
-    <string name="last_games">Last Games</string>
+    <string name="welcome_to_the_world_of_qurio_where_questions_spark_curiosity_and_prizes_await_the_smartest_ready_to_begin_the_challenge">مرحباً بك في عالم كيوريو، حيث تُشعل الأسئلة الفضاء وتنتظر الجوائز الأذكى. هل أنت مستعد لبدء التحدي؟</string>
+    <string name="welcome_to_quiro">مرحباً بك في كيوريو</string>
+    <string name="choose_your_character">اختر شخصيتك</string>
+    <string name="challenge_and_win">تحدّ واربح</string>
+    <string name="collect_them_all">اجمعهم جميعاً!</string>
+    <string name="unlock_characters_earn_badges_and_climb_the_leaderboards_qurio_is_merciless_but_you_can_handle_it">افتح الشخصيات، اربح الشارات، وتصدر لوحات المتصدرين. كيوريو لا يرحم، لكنك تستطيع التعامل معه.</string>
+    <string name="swipe_up_to_play">اسحب للأعلى للعب!</string>
+    <string name="all">الكل</string>
+    <string name="last_games">آخر الألعاب</string>
 </resources>
