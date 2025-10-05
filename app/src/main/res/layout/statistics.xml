@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/statistics"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -70,6 +71,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/lives"
                     style="@style/Typography.label.medium"
                     android:textColor="@color/Shade_Primary"
                     android:text="4"
@@ -136,6 +138,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/points"
                     style="@style/Typography.label.medium"
                     android:textColor="@color/Shade_Primary"
                     android:text="5,400"
@@ -205,6 +208,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/awards"
                     style="@style/Typography.label.medium"
                     android:textColor="@color/Shade_Primary"
                     android:text="2"
@@ -229,6 +233,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
+        android:id="@+id/elite_badge"
         android:contentDescription="@string/points"
         android:src="@drawable/ic_crown"
         android:layout_width="24dp"
