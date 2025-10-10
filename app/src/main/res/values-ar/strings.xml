@@ -39,4 +39,6 @@
     <string name="swipe_up_to_play">اسحب للأعلى للعب!</string>
     <string name="all">الكل</string>
     <string name="last_games">آخر الألعاب</string>
+    <string name="sound">Sound</string>
+    <string name="music">Music</string>
 </resources>

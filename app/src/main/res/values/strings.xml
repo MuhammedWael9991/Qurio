@@ -38,4 +38,6 @@
     <string name="swipe_up_to_play">Swipe up to PLAY!</string>
     <string name="all">All</string>
     <string name="last_games">Last Games</string>
+    <string name="sound">Sound</string>
+    <string name="music">Music</string>
 </resources>

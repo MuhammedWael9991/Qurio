@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Qurio Button -->
     <declare-styleable name="QuiroButtons">
         <attr name="buttonType" format="enum">
             <enum name="primary_big" value="0"/>
@@ -11,6 +13,7 @@
             <enum name="game_text_disabled" value="6"/>
         </attr>
         <attr name="onButtonClick" format="reference" />
+        <attr name="buttonText" format="string" />
     </declare-styleable>
 
     <!-- Top Bar -->
@@ -20,6 +23,13 @@
             <enum name="secondary" value="1" />
         </attr>
         <attr name="topBarTitle" format="string"/>
+    </declare-styleable>
+
+    <!-- Sound Bar -->
+    <declare-styleable name="SoundControlView">
+        <attr name="soundTitle" format="string" />
+        <attr name="soundIcon" format="reference" />
+        <attr name="soundLevel" format="float" />
     </declare-styleable>
 
 </resources>
