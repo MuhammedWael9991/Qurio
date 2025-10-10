@@ -56,6 +56,10 @@ class OnboardingPresenter @Inject constructor() : OnboardingContract.Presenter {
         }
     }
 
+    override fun onSwapUp() {
+        view?.navigateToHome()
+    }
+
     override fun start() {
         view?.showPage(pages[currentIndex], true)
     }

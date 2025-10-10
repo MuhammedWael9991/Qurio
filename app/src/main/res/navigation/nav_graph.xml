@@ -9,6 +9,23 @@
         android:id="@+id/onboardingFragment"
         android:name="com.qurio.ui.screen.onbording.OnboardingFragment"
         android:label="Onboarding"
-        tools:layout="@layout/fragment_onbording" />
+        tools:layout="@layout/fragment_onbording">
+
+        <action
+            android:id="@+id/onboardingFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.qurio.ui.screen.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+
+    </fragment>
+
+
 
 </navigation>

@@ -5,6 +5,8 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.qurio.QurioApp
 import com.qurio.R
 import com.qurio.databinding.FragmentOnbordingBinding
@@ -39,7 +41,7 @@ class OnboardingFragment
         }
 
         binding.swapUpButton.setOnSwapCompleteListener {
-            Toast.makeText(context, "Swap up completed!", Toast.LENGTH_SHORT).show()
+            presenter.onSwapUp()
         }
 
         presenter.start()
@@ -78,6 +80,10 @@ class OnboardingFragment
             override fun onAnimationRepeat(animation: Animation?) {}
             override fun onAnimationStart(animation: Animation?) {}
         })
+    }
+
+    override fun navigateToHome() {
+        findNavController().navigate(R.id.onboardingFragment_to_homeFragment)
     }
 
     override fun showLoading() {
