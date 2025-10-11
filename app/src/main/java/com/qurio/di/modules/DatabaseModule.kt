@@ -2,8 +2,8 @@ package com.qurio.di.modules
 
 import android.app.Application
 import androidx.room.Room
-import com.qurio.data.dao.UserDao
-import com.qurio.data.database.AppDatabase
+import com.qurio.data.local.dao.UserDao
+import com.qurio.data.local.database.AppDatabase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

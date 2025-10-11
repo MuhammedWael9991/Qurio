@@ -1,10 +1,10 @@
-package com.qurio.data.dao
+package com.qurio.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.qurio.data.entity.LastGamesEntity
+import com.qurio.data.local.entity.LastGamesEntity
 
 @Dao
 interface LastGamesDao {

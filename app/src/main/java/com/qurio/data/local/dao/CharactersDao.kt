@@ -1,4 +1,4 @@
-package com.qurio.data.dao
+package com.qurio.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Query

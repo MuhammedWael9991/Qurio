@@ -1,12 +1,12 @@
-package com.qurio.data.database
+package com.qurio.data.local.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.qurio.data.dao.UserDao
-import com.qurio.data.entity.AchievementsEntity
-import com.qurio.data.entity.LastGamesEntity
-import com.qurio.data.entity.UserEntity
-import com.qurio.data.entity.CharactersEntity
+import com.qurio.data.local.dao.UserDao
+import com.qurio.data.local.entity.AchievementsEntity
+import com.qurio.data.local.entity.LastGamesEntity
+import com.qurio.data.local.entity.UserEntity
+import com.qurio.data.local.entity.CharactersEntity
 
 
 @Database(

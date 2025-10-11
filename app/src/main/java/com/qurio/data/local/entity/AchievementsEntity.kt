@@ -1,4 +1,4 @@
-package com.qurio.data.entity
+package com.qurio.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
