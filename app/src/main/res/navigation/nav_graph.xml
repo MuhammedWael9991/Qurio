@@ -29,6 +29,11 @@
             app:destination="@id/GamesFragment"
             />
 
+        <action
+            android:id="@+id/homeFragment_to_LastGamesFragment"
+            app:destination="@id/LastGamesFragment"
+            />
+
     </fragment>
 
     <fragment
@@ -36,6 +41,14 @@
         android:name="com.qurio.ui.screen.games.GamesFragment"
         android:label="Games"
         tools:layout="@layout/fragment_games">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/LastGamesFragment"
+        android:name="com.qurio.ui.screen.lastGames.LastGamesFragment"
+        android:label="LastGames"
+        tools:layout="@layout/fragment_last_games">
 
     </fragment>
 

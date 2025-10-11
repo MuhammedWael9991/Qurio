@@ -82,6 +82,9 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
         binding.allGamesButton.setOnClickListener {
             presenter.onClickShowAllGames()
         }
+        binding.lastGamesButton.setOnClickListener {
+            presenter.onClickShowAllLastGames()
+        }
 
     }
 
@@ -111,5 +114,9 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
 
     override fun navigateToShowAllGames() {
         findNavController().navigate(R.id.homeFragment_to_GamesFragment)
+    }
+
+    override fun navigateToShowAllLastGames() {
+        findNavController().navigate(R.id.homeFragment_to_LastGamesFragment)
     }
 }

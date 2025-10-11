@@ -4,6 +4,8 @@ import com.qurio.ui.screen.games.GamesContract
 import com.qurio.ui.screen.games.GamesPresenter
 import com.qurio.ui.screen.home.HomeContract
 import com.qurio.ui.screen.home.HomePresenter
+import com.qurio.ui.screen.lastGames.LastGamesContract
+import com.qurio.ui.screen.lastGames.LastGamesPresenter
 import com.qurio.ui.screen.onbording.OnboardingContract
 import com.qurio.ui.screen.onbording.OnboardingPresenter
 import dagger.Binds
@@ -26,5 +28,10 @@ abstract class PresentersModule {
     abstract fun bindGamesPresenter(
         presenter: GamesPresenter
     ): GamesContract.Presenter
+
+    @Binds
+    abstract fun bindLastGamesPresenter(
+        presenter: LastGamesPresenter
+    ): LastGamesContract.Presenter
 
 }
