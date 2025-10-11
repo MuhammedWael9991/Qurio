@@ -79,6 +79,10 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
             page.scaleX = scale
         }
 
+        binding.allGamesButton.setOnClickListener {
+            presenter.onClickShowAllGames()
+        }
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,5 +107,9 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
 
     override fun showError(message: String) {
         TODO("Not yet implemented")
+    }
+
+    override fun navigateToShowAllGames() {
+        findNavController().navigate(R.id.homeFragment_to_GamesFragment)
     }
 }

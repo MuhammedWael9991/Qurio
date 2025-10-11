@@ -24,6 +24,19 @@
         android:label="Home"
         tools:layout="@layout/fragment_home">
 
+        <action
+            android:id="@+id/homeFragment_to_GamesFragment"
+            app:destination="@id/GamesFragment"
+            />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/GamesFragment"
+        android:name="com.qurio.ui.screen.games.GamesFragment"
+        android:label="Games"
+        tools:layout="@layout/fragment_games">
+
     </fragment>
 
 

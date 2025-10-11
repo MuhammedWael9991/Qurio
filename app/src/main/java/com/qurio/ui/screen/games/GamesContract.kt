@@ -1,14 +1,14 @@
-package com.qurio.ui.screen.home
+package com.qurio.ui.screen.games
 
 import com.qurio.ui.base.BasePresenter
 import com.qurio.ui.base.BaseView
 
-interface HomeContract {
+interface GamesContract {
     interface View : BaseView {
-        fun navigateToShowAllGames()
+
     }
 
     interface Presenter : BasePresenter<View> {
-        fun onClickShowAllGames()
+
     }
 }

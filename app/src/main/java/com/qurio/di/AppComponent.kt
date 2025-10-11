@@ -7,6 +7,7 @@ import com.qurio.di.modules.DatabaseModule
 import com.qurio.di.modules.NetworkModule
 import com.qurio.di.modules.PresentersModule
 import com.qurio.di.modules.RepositoryModule
+import com.qurio.ui.screen.games.GamesFragment
 import com.qurio.ui.screen.home.HomeFragment
 import com.qurio.ui.screen.onbording.OnboardingFragment
 import dagger.BindsInstance
@@ -28,6 +29,7 @@ interface AppComponent {
 
     fun inject(onboardingFragment: OnboardingFragment)
     fun inject(homeFragment: HomeFragment)
+    fun inject(gamesFragment: GamesFragment)
 
     @Component.Builder
     interface Builder {

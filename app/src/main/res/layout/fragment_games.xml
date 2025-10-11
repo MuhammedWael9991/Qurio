@@ -3,17 +3,146 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/Surface">
+    android:background="@color/Surface"
+    android:fitsSystemWindows="true"
+    >
 
     <com.qurio.ui.components.TopBar
+        android:id="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:topBarType="secondary"
+        app:topBarTitle="@string/games"
         />
 
-    <!-- Recycler View -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/top_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:fillViewport="true"
+        android:paddingBottom="80dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/music_game"
+                android:id="@+id/music_card"
+                android:layout_width="0dp"
+                android:layout_height="243dp"
+                android:contentDescription="TODO"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/food_card"
+                />
+            <ImageView
+                android:src="@drawable/food_and_drink_game"
+                android:id="@+id/food_card"
+                android:layout_width="0dp"
+                android:layout_height="243dp"
+                android:contentDescription="TODO"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/music_card"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <ImageView
+                android:src="@drawable/geography_game"
+                android:id="@+id/geography_card"
+                android:layout_width="0dp"
+                android:layout_height="243dp"
+                android:contentDescription="TODO"
+                app:layout_constraintTop_toBottomOf="@id/music_card"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/food_card"
+                />
+            <ImageView
+                android:src="@drawable/general_knowledge_game"
+                android:id="@+id/general_knowledge_card"
+                android:layout_width="0dp"
+                android:layout_height="243dp"
+                android:contentDescription="TODO"
+                app:layout_constraintTop_toBottomOf="@id/music_card"
+                app:layout_constraintStart_toEndOf="@id/music_card"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <ImageView
+                android:src="@drawable/film_and_tv_game"
+                android:id="@+id/film_and_tv_card"
+                android:layout_width="0dp"
+                android:layout_height="243dp"
+                android:contentDescription="TODO"
+                app:layout_constraintTop_toBottomOf="@id/general_knowledge_card"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/food_card"
+                />
+            <ImageView
+                android:src="@drawable/society_and_culture_game"
+                android:id="@+id/society_and_culture_card"
+                android:layout_width="0dp"
+                android:layout_height="243dp"
+                android:contentDescription="TODO"
+                app:layout_constraintTop_toBottomOf="@id/general_knowledge_card"
+                app:layout_constraintStart_toEndOf="@id/music_card"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+
+            <ImageView
+                android:src="@drawable/science_game"
+                android:id="@+id/science_card"
+                android:layout_width="0dp"
+                android:layout_height="243dp"
+                android:contentDescription="TODO"
+                app:layout_constraintTop_toBottomOf="@id/film_and_tv_card"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/food_card"
+                />
+            <ImageView
+                android:src="@drawable/sport_and_leisure_game"
+                android:id="@+id/sport_and_leisure_card"
+                android:layout_width="0dp"
+                android:layout_height="243dp"
+                android:contentDescription="TODO"
+                app:layout_constraintTop_toBottomOf="@id/film_and_tv_card"
+                app:layout_constraintStart_toEndOf="@id/music_card"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <ImageView
+                android:src="@drawable/history_game"
+                android:id="@+id/history_card"
+                android:layout_width="0dp"
+                android:layout_height="243dp"
+                android:contentDescription="TODO"
+                app:layout_constraintTop_toBottomOf="@id/science_card"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/food_card"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                />
+            <ImageView
+                android:src="@drawable/arts_literature_game"
+                android:id="@+id/arts_literature_card"
+                android:layout_width="0dp"
+                android:layout_height="243dp"
+                android:contentDescription="TODO"
+                app:layout_constraintTop_toBottomOf="@id/sport_and_leisure_card"
+                app:layout_constraintStart_toEndOf="@id/music_card"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,4 +14,8 @@ class HomePresenter @Inject constructor() : HomeContract.Presenter {
     override fun detachView() {
         view = null
     }
+
+    override fun onClickShowAllGames() {
+        view?.navigateToShowAllGames()
+    }
 }
