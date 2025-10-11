@@ -10,8 +10,8 @@ import com.qurio.data.local.entity.LastGamesEntity
 interface LastGamesDao {
 
     @Query("SELECT * FROM last_games ORDER BY date DESC LIMIT 10")
-    fun getLastGames(): List<LastGamesEntity>
+    suspend fun getLastGames(): List<LastGamesEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertLastGame(lastGame: LastGamesEntity)
+    suspend fun insertLastGame(lastGame: LastGamesEntity)
 }
