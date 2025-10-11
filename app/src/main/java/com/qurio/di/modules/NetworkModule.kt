@@ -1,6 +1,7 @@
 package com.qurio.di.modules
 
 import com.google.gson.Gson
+import com.qurio.data.remote.TriviaApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -18,7 +19,7 @@ object NetworkModule {
     @Singleton
     fun provideOkHttp(): OkHttpClient {
         val logging = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BASIC
+            level = HttpLoggingInterceptor.Level.BODY
         }
         return OkHttpClient.Builder()
             .addInterceptor(logging)
@@ -35,8 +36,8 @@ object NetworkModule {
             .build()
     }
 
-//    @Provides
-//    @Singleton
-//    fun provideTriviaApi(retrofit: Retrofit): TriviaApi =
-//        retrofit.create(TriviaApi::class.java)
+    @Provides
+    @Singleton
+    fun provideTriviaApi(retrofit: Retrofit): TriviaApi =
+        retrofit.create(TriviaApi::class.java)
 }
