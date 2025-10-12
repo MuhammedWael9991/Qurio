@@ -1,4 +1,4 @@
-package com.qurio.data.remote
+package com.qurio.data.remote.api
 
 import com.qurio.data.remote.model.QuestionResponse
 import retrofit2.http.GET

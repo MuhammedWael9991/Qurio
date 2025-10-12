@@ -1,7 +1,7 @@
 package com.qurio.di.modules
 
 import com.google.gson.Gson
-import com.qurio.data.remote.TriviaApi
+import com.qurio.data.remote.api.TriviaApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
