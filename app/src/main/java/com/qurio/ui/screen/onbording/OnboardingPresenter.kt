@@ -1,9 +1,21 @@
 package com.qurio.ui.screen.onbording
 
 import com.qurio.R
+import com.qurio.data.repository.AchievementsRepository
+import com.qurio.data.repository.CharactersRepository
 import jakarta.inject.Inject
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class OnboardingPresenter @Inject constructor() : OnboardingContract.Presenter {
+class OnboardingPresenter @Inject constructor(
+    private val charactersRepository: CharactersRepository,
+    private val achievementsRepository: AchievementsRepository
+) : OnboardingContract.Presenter {
+
+    init {
+        initGameData()
+    }
 
     private var view: OnboardingContract.View? = null
 
@@ -33,6 +45,13 @@ class OnboardingPresenter @Inject constructor() : OnboardingContract.Presenter {
     )
 
     private var currentIndex = 0
+
+    private fun initGameData(){
+        CoroutineScope(Dispatchers.IO).launch {
+            charactersRepository.initCharacters()
+            achievementsRepository.initAchievements()
+        }
+    }
 
     override fun attachView(view: OnboardingContract.View) {
         this.view = view
