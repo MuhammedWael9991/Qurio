@@ -9,6 +9,8 @@ data class CharactersEntity(
     val name: String,
     val image: Int,
     val price: Int,
+    val age: String,
     val isOwned: Boolean,
+    val isSelected: Boolean,
     val description: String,
 )

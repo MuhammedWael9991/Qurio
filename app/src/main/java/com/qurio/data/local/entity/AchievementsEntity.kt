@@ -8,7 +8,8 @@ data class AchievementsEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val title: String,
     val description: String,
-    val image: Int,
+    val lockedImage: Int,
+    val ownedImage: Int,
     val howToGetIt: String,
     val isAchieved: Boolean
 )

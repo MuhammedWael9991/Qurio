@@ -1,20 +1,18 @@
 package com.qurio.data.local.dao
 
 import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.qurio.data.local.entity.AchievementsEntity
 
 @Dao
 interface AchievementsDao {
 
-    @Query("SELECT * FROM achievements")
-    suspend fun getAchievements(): Int
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun inertAll(achievements: List<AchievementsEntity>)
 
-    @Query("UPDATE achievements SET isAchieved = 1 WHERE id = :achievementId")
-    suspend fun unlockAchievement(achievementId: Int)
+    @Query("SELECT COUNT(*) FROM achievements")
+    suspend fun getCount(): Int
 
-    @Query("SELECT isAchieved FROM achievements WHERE id = :achievementId")
-    suspend fun isAchievementUnlocked(achievementId: Int): Boolean
-
-    @Query("SELECT * FROM achievements WHERE id = :achievementId")
-    suspend fun getAchievementDetails(achievementId: Int): String
 }

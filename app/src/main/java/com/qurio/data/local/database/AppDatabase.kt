@@ -2,6 +2,9 @@ package com.qurio.data.local.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.qurio.data.local.dao.AchievementsDao
+import com.qurio.data.local.dao.CharactersDao
+import com.qurio.data.local.dao.LastGamesDao
 import com.qurio.data.local.dao.UserDao
 import com.qurio.data.local.entity.AchievementsEntity
 import com.qurio.data.local.entity.LastGamesEntity
@@ -20,4 +23,6 @@ import com.qurio.data.local.entity.CharactersEntity
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
+    abstract fun charactersDao(): CharactersDao
+    abstract fun achievementsDao(): AchievementsDao
 }
