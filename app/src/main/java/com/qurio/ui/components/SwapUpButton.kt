@@ -48,7 +48,8 @@ class SwapUpButton @JvmOverloads constructor(
                         val newTranslationY = v.translationY + dy
 
                         // limit the drag inside parent bounds
-                        val minY = -binding.root.height.toFloat() + v.height
+                        val offsetTopLimit = 4 * resources.displayMetrics.density
+                        val minY = -binding.root.height.toFloat() + v.height + offsetTopLimit
                         val maxY = 0f
                         v.translationY = min(maxY, max(minY, newTranslationY))
 
