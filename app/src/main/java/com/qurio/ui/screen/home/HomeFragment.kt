@@ -86,6 +86,10 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
             presenter.onClickShowAllLastGames()
         }
 
+        binding.topBar.onSettingsClick = {
+            findNavController().navigate(R.id.homeFragment_to_DialogSettingsFragment)
+        }
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

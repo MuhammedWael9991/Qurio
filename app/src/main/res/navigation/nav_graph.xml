@@ -34,6 +34,11 @@
             app:destination="@id/LastGamesFragment"
             />
 
+        <action
+            android:id="@+id/homeFragment_to_DialogSettingsFragment"
+            app:destination="@id/DialogSettingsFragment"
+            />
+
     </fragment>
 
     <fragment
@@ -51,6 +56,14 @@
         tools:layout="@layout/fragment_last_games">
 
     </fragment>
+
+    <dialog
+        android:id="@+id/DialogSettingsFragment"
+        android:name="com.qurio.ui.screen.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/dialog_settings">
+
+    </dialog>
 
 
 
