@@ -1,5 +1,7 @@
 package com.qurio.di.modules
 
+import com.qurio.ui.screen.character.CharacterContract
+import com.qurio.ui.screen.character.CharacterPresenter
 import com.qurio.ui.screen.games.GamesContract
 import com.qurio.ui.screen.games.GamesPresenter
 import com.qurio.ui.screen.home.HomeContract
@@ -33,5 +35,10 @@ abstract class PresentersModule {
     abstract fun bindLastGamesPresenter(
         presenter: LastGamesPresenter
     ): LastGamesContract.Presenter
+
+    @Binds
+    abstract fun bindCharacterPresenter(
+        presenter: CharacterPresenter
+    ): CharacterContract.Presenter
 
 }

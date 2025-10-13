@@ -17,6 +17,7 @@ class TopBar @JvmOverloads constructor(
 
     var onBackClick: (() -> Unit)? = null
     var onSettingsClick: (() -> Unit)? = null
+    var onClickAvatar: (() -> Unit)? = null
 
     enum class Type(val value: Int) {
         PRIMARY(0),
@@ -52,5 +53,6 @@ class TopBar @JvmOverloads constructor(
     private fun setupListeners() {
         binding.settingButton.setOnClickListener { onSettingsClick?.invoke() }
         binding.icBack.setOnClickListener { onBackClick?.invoke() }
+        binding.avatarImage.setOnClickListener { onClickAvatar?.invoke() }
     }
 }

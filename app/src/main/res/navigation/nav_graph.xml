@@ -39,6 +39,11 @@
             app:destination="@id/DialogSettingsFragment"
             />
 
+        <action
+            android:id="@+id/homeFragment_to_DialogCharacterFragment"
+            app:destination="@id/dialog_character"
+            />
+
     </fragment>
 
     <fragment
@@ -64,6 +69,13 @@
         tools:layout="@layout/dialog_settings">
 
     </dialog>
+
+    <dialog
+        android:id="@+id/dialog_character"
+        android:name="com.qurio.ui.screen.character.CharacterFragment"
+        android:label="Character Dialog"
+        tools:layout="@layout/dialog_character"
+        />
 
 
 

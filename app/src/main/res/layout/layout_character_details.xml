@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/info_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/button_outlined"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="51dp"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="7dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="7dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/Typography.title.large"
+                android:textColor="@color/Shade_Primary"
+                android:text="@string/rika"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/age"
+                style="@style/Typography.label.small"
+                android:textColor="@color/Shade_Secondary"
+                android:text="@string/age_12_sunblooms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:src="@drawable/character_glow_fill"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/info_box"
+        android:layout_marginEnd="12dp"
+        />
+    
+    <ImageView
+        android:id="@+id/image"
+        android:src="@drawable/ch_rika_fill"
+        android:layout_width="47dp"
+        android:layout_height="80dp"
+        app:layout_constraintEnd_toEndOf="@id/info_box"
+        app:layout_constraintBottom_toBottomOf="@id/info_box"
+        android:layout_marginEnd="16dp"
+        />
+
+    <ImageView
+        android:id="@+id/lock"
+        android:src="@drawable/lock"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        app:layout_constraintTop_toTopOf="@id/image"
+        app:layout_constraintStart_toStartOf="@id/image"
+        app:layout_constraintEnd_toEndOf="@id/image"
+        />
+
+    <TextView
+        android:id="@+id/description"
+        style="@style/Typography.body.small"
+        android:textColor="@color/Shade_Secondary"
+        android:text="@string/rika_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/info_box"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal="12dp"
+        android:layout_marginTop="12dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

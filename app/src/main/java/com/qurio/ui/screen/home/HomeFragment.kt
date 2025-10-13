@@ -90,6 +90,10 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
             findNavController().navigate(R.id.homeFragment_to_DialogSettingsFragment)
         }
 
+        binding.topBar.onClickAvatar = {
+            findNavController().navigate(R.id.homeFragment_to_DialogCharacterFragment)
+        }
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
