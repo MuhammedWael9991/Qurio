@@ -52,4 +52,5 @@
     <string name="buy">Buy</string>
     <string name="skip">Skip</string>
     <string name="check">Check</string>
+    <string name="loading_game">Loading Game</string>
 </resources>
