@@ -46,4 +46,8 @@
     <string name="rika_description">Nature’s little explorer! Rika talks to mushrooms and swears squirrels give her battle advice. Always ready for an adventure.</string>
     <string name="equals">=</string>
     <string name="character">Character</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="buy">Buy</string>
 </resources>

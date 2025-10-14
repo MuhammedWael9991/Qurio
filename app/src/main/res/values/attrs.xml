@@ -16,6 +16,16 @@
         <attr name="buttonText" format="string" />
     </declare-styleable>
 
+    <!-- Character Dialog Buttons -->
+    <declare-styleable name="CharacterButtons">
+        <attr name="buttonsType" format="enum">
+            <enum name="confirm_cancel" value="0"/>
+            <enum name="ok" value="1"/>
+            <enum name="buy_ok" value="2"/>
+            <enum name="buy_cancel" value="3"/>
+        </attr>
+    </declare-styleable>
+
     <!-- Top Bar -->
     <declare-styleable name="TopBarView">
         <attr name="topBarType" format="enum">
