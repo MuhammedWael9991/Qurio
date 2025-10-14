@@ -11,13 +11,11 @@ import kotlinx.coroutines.launch
 
 class OnboardingPresenter @Inject constructor(
     private val charactersRepository: CharactersRepository,
-    private val achievementsRepository: AchievementsRepository,
-    private val questionRepository: QuestionRepository
+    private val achievementsRepository: AchievementsRepository
 ) : OnboardingContract.Presenter {
 
     init {
         initGameData()
-        getQuestions()
     }
 
     private var view: OnboardingContract.View? = null
@@ -48,12 +46,6 @@ class OnboardingPresenter @Inject constructor(
     )
 
     private var currentIndex = 0
-
-    private fun getQuestions(){
-        CoroutineScope(Dispatchers.IO).launch {
-            questionRepository.getQuestion()
-        }
-    }
 
     private fun initGameData(){
         CoroutineScope(Dispatchers.IO).launch {
