@@ -25,49 +25,49 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
         val gamePage = listOf<GamePage>(
             GamePage(
                 imageRes = R.drawable.music_game,
-                destinationId = 0
+                category = 12
             ),
             GamePage(
                 imageRes = R.drawable.food_and_drink_game,
-                destinationId = 0
+                category = 0
             ),
             GamePage(
                 imageRes = R.drawable.geography_game,
-                destinationId = 0
+                category = 22
             ),
             GamePage(
                 imageRes = R.drawable.general_knowledge_game,
-                destinationId = 0
+                category = 9
             ),
             GamePage(
                 imageRes = R.drawable.film_and_tv_game,
-                destinationId = 0
+                category = 11
             ),
             GamePage(
                 imageRes = R.drawable.science_game,
-                destinationId = 0
+                category = 17
             ),
             GamePage(
                 imageRes = R.drawable.society_and_culture_game,
-                destinationId = 0
+                category = 24
             ),
             GamePage(
                 imageRes = R.drawable.sport_and_leisure_game,
-                destinationId = 0
+                category = 21
             ),
             GamePage(
                 imageRes = R.drawable.history_game,
-                destinationId = 0
+                category = 23
             ),
             GamePage(
                 imageRes = R.drawable.arts_literature_game,
-                destinationId = 0
-            ),
+                category = 25
+            )
         )
 
         val adapter = GameTypeAdapter(gamePage) { page ->
-            Toast.makeText(context, "Click", Toast.LENGTH_SHORT).show()
-//            findNavController().navigate(page.destinationId)
+            Toast.makeText(context, "Click: ${page.category}", Toast.LENGTH_SHORT).show()
+            presenter.onSelectGame(page.category)
         }
 
         binding.gamesViewpager.adapter = adapter
@@ -126,5 +126,9 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
 
     override fun navigateToShowAllLastGames() {
         findNavController().navigate(R.id.homeFragment_to_LastGamesFragment)
+    }
+
+    override fun navigateToGame(category: Int) {
+        findNavController().navigate(R.id.homeFragment_to_GameFragment)
     }
 }

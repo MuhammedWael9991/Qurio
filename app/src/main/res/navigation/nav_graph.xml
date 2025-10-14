@@ -44,6 +44,11 @@
             app:destination="@id/dialog_character"
             />
 
+        <action
+            android:id="@+id/homeFragment_to_GameFragment"
+            app:destination="@id/GameFragment"
+            />
+
     </fragment>
 
     <fragment
@@ -59,6 +64,14 @@
         android:name="com.qurio.ui.screen.lastGames.LastGamesFragment"
         android:label="LastGames"
         tools:layout="@layout/fragment_last_games">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/GameFragment"
+        android:name="com.qurio.ui.screen.game.GameFragment"
+        android:label="Game"
+        tools:layout="@layout/fragment_game">
 
     </fragment>
 

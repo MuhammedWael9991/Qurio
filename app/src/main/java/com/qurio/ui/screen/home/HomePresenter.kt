@@ -22,4 +22,8 @@ class HomePresenter @Inject constructor() : HomeContract.Presenter {
     override fun onClickShowAllLastGames() {
         view?.navigateToShowAllLastGames()
     }
+
+    override fun onSelectGame(category: Int) {
+        view?.navigateToGame(category)
+    }
 }

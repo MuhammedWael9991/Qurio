@@ -7,10 +7,12 @@ interface HomeContract {
     interface View : BaseView {
         fun navigateToShowAllGames()
         fun navigateToShowAllLastGames()
+        fun navigateToGame(category: Int)
     }
 
     interface Presenter : BasePresenter<View> {
         fun onClickShowAllGames()
         fun onClickShowAllLastGames()
+        fun onSelectGame(category: Int)
     }
 }
