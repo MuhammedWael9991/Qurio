@@ -17,7 +17,8 @@
         app:topBarType="primary"
         />
 
-    <com.qurio.ui.components.Statistics
+    <include
+        layout="@layout/statistics"
         android:id="@+id/statistics"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,8 +1,14 @@
 package com.qurio.ui.screen.home
 
+import com.qurio.data.repository.UserRepository
 import jakarta.inject.Inject
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class HomePresenter @Inject constructor() : HomeContract.Presenter {
+class HomePresenter @Inject constructor(
+    private val userRepository: UserRepository
+) : HomeContract.Presenter {
 
     private var view: HomeContract.View? = null
 
@@ -13,6 +19,13 @@ class HomePresenter @Inject constructor() : HomeContract.Presenter {
 
     override fun detachView() {
         view = null
+    }
+
+    override fun getUserData() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val user = userRepository.getUserData()
+            view?.displayUserData(user)
+        }
     }
 
     override fun onClickShowAllGames() {

@@ -18,6 +18,7 @@ class ResultFragment: BaseFragment<FragmentResultBinding>(FragmentResultBinding:
         super.onViewCreated(view, savedInstanceState)
         presenter.attachView(this)
         displayResults()
+        storeUsePoints()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +52,10 @@ class ResultFragment: BaseFragment<FragmentResultBinding>(FragmentResultBinding:
         binding.resultHolder.incorrectNumber.text = args.inCorrect.toString()
         binding.resultHolder.skippedNumber.text = args.skipped.toString()
         binding.resultHolder.pointNumber.text = args.score.toString()
+    }
+
+    fun storeUsePoints() {
+        presenter.storeUserPoints(args.score)
     }
 
 

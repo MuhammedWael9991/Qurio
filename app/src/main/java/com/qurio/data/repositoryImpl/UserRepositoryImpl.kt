@@ -8,6 +8,7 @@ import jakarta.inject.Inject
 class UserRepositoryImpl @Inject constructor(
     private val dao: UserDao
 ): UserRepository {
+
     override suspend fun initializeUserData() {
         if (dao.getCount() == 0){
             dao.insertUser(
@@ -21,5 +22,13 @@ class UserRepositoryImpl @Inject constructor(
                 )
             )
         }
+    }
+
+    override suspend fun getUserData(): UserEntity {
+        return dao.getUser()
+    }
+
+    override suspend fun updateUserPoints(point: Int) {
+        dao.updateUserPoints(point)
     }
 }

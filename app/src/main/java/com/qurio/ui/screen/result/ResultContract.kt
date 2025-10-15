@@ -9,6 +9,6 @@ interface ResultContract {
     }
 
     interface Presenter: BasePresenter<View> {
-
+        fun storeUserPoints(points: Int)
     }
 }

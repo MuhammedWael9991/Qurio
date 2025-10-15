@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.qurio.QurioApp
 import com.qurio.R
+import com.qurio.data.local.entity.UserEntity
 import com.qurio.databinding.FragmentHomeBinding
 import com.qurio.ui.base.BaseFragment
 import jakarta.inject.Inject
@@ -93,6 +94,7 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
         binding.topBar.onClickAvatar = {
             findNavController().navigate(R.id.homeFragment_to_DialogCharacterFragment)
         }
+        presenter.getUserData()
 
     }
 
@@ -131,6 +133,17 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
     override fun navigateToDifficultyLevel(category: Int) {
         val action = HomeFragmentDirections.homeFragmentToDialogDifficultyLevel(category)
         findNavController().navigate(action)
+    }
+
+    override fun displayUserData(user: UserEntity) {
+        binding.statistics.lives.text = user.lives.toString()
+        binding.statistics.points.text = user.totalPoints.toString()
+        binding.statistics.awards.text = user.awards.toString()
+        if (user.totalPoints >= 1000) {
+            binding.statistics.eliteBadge.visibility = View.VISIBLE
+        }else {
+            binding.statistics.eliteBadge.visibility = View.GONE
+        }
     }
 
 }
