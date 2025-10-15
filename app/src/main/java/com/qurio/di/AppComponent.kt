@@ -8,6 +8,7 @@ import com.qurio.di.modules.NetworkModule
 import com.qurio.di.modules.PresentersModule
 import com.qurio.di.modules.RepositoryModule
 import com.qurio.ui.screen.character.CharacterFragment
+import com.qurio.ui.screen.game.GameFragment
 import com.qurio.ui.screen.games.GamesFragment
 import com.qurio.ui.screen.home.HomeFragment
 import com.qurio.ui.screen.lastGames.LastGamesFragment
@@ -34,6 +35,8 @@ interface AppComponent {
     fun inject(gamesFragment: GamesFragment)
     fun inject(lastGamesFragment: LastGamesFragment)
     fun inject(characterFragment: CharacterFragment)
+    fun inject(gameFragment: GameFragment)
+
 
     @Component.Builder
     interface Builder {

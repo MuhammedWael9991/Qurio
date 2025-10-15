@@ -129,6 +129,7 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
     }
 
     override fun navigateToGame(category: Int) {
-        findNavController().navigate(R.id.homeFragment_to_GameFragment)
+        val action = HomeFragmentDirections.homeFragmentToGameFragment(category)
+        findNavController().navigate(action)
     }
 }

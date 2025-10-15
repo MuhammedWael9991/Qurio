@@ -73,6 +73,11 @@
         android:label="Game"
         tools:layout="@layout/fragment_game">
 
+        <argument
+            android:name="category"
+            app:argType="integer"
+            />
+
     </fragment>
 
     <dialog

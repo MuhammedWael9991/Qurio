@@ -1,122 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Surface">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/title_large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:fontFamily="@font/fredoka_bold"
+        android:gravity="center"
+        android:shadowColor="@color/Shade_Primary"
+        android:shadowRadius="1"
+        android:text="Welcome to Quiro"
+        android:textColor="@color/Surface"
+        android:textSize="44sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/text_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/Surface"
-        >
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="112dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/title_large"
+            android:id="@+id/title"
+            style="@style/Typography.title.large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Welcome to Quiro"
-            android:textColor="@color/Surface"
-            android:fontFamily="@font/fredoka_bold"
-            android:textSize="44sp"
-            android:shadowColor="@color/Shade_Primary"
-            android:shadowRadius="1"
+            android:textColor="@color/Shade_Primary" />
+
+        <TextView
+            android:id="@+id/description"
+            style="@style/Typography.body.small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="75dp"
-            android:gravity="center"
-            />
-
-        <LinearLayout
-            android:id="@+id/text_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="112dp"
-            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="12dp"
             android:gravity="center_horizontal"
-            >
+            android:text="@string/welcome_to_the_world_of_qurio_where_questions_spark_curiosity_and_prizes_await_the_smartest_ready_to_begin_the_challenge"
+            android:textColor="@color/Shade_Secondary" />
 
-            <TextView
-                android:id="@+id/title"
-                style="@style/Typography.title.large"
-                android:textColor="@color/Shade_Primary"
-                android:text="Welcome to Quiro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/description"
-                style="@style/Typography.body.small"
-                android:textColor="@color/Shade_Secondary"
-                android:text="@string/welcome_to_the_world_of_qurio_where_questions_spark_curiosity_and_prizes_await_the_smartest_ready_to_begin_the_challenge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="12dp"
-                />
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="105dp"
+        android:layout_marginVertical="220dp"
+        android:src="@drawable/avatar_onbording"
+        app:layout_constraintBottom_toBottomOf="@id/next_indicator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/next_indicator" />
 
-        </LinearLayout>
+    <ImageView
+        android:id="@+id/next_indicator"
+        android:layout_width="88dp"
+        android:layout_height="218dp"
+        android:src="@drawable/next_indicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/image"
-            android:src="@drawable/avatar_onbording"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="@id/next_indicator"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/next_indicator"
-            android:layout_marginHorizontal="105dp"
-            android:layout_marginVertical="220dp"
-            />
+    <ImageView
+        android:id="@+id/previous_indicator"
+        android:layout_width="88dp"
+        android:layout_height="218dp"
+        android:src="@drawable/previous_indicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/next_indicator"
-            android:src="@drawable/next_indicator"
-            android:layout_width="88dp"
-            android:layout_height="218dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+    <com.qurio.ui.components.SwapUpButton
+        android:id="@+id/swap_up_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/swipe_up_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/previous_indicator"
-            android:src="@drawable/previous_indicator"
-            android:layout_width="88dp"
-            android:layout_height="218dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
-
-        <com.qurio.ui.components.SwapUpButton
-            android:id="@+id/swap_up_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/swipe_up_text"
-            android:layout_marginBottom="8dp"
-            />
-
-        <com.qurio.ui.components.GradientTextView
-            android:id="@+id/swipe_up_text"
-            android:layout_width="120dp"
-            android:layout_height="22dp"
-            android:text="@string/swipe_up_to_play"
-            android:textAppearance="@style/swipe_up_to"
-            style="@style/Typography.label.medium"
-            android:lineSpacingExtra="5sp"
-            android:gravity="center_horizontal|center_vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="24dp"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</layout>
+    <com.qurio.ui.components.GradientTextView
+        android:id="@+id/swipe_up_text"
+        style="@style/Typography.label.medium"
+        android:layout_width="120dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:lineSpacingExtra="5sp"
+        android:text="@string/swipe_up_to_play"
+        android:textAppearance="@style/swipe_up_to"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
