@@ -52,4 +52,7 @@
     <string name="skip">Skip</string>
     <string name="check">Check</string>
     <string name="loading_game">Loading Game</string>
+    <string name="no_connection">No Connection</string>
+    <string name="retry">Retry</string>
+    <string name="no_connection_description">Oops! It looks like you’re offline. Please check your internet connection to continue playing</string>
 </resources>
