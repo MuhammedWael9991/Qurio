@@ -3,6 +3,7 @@ package com.qurio.ui.screen.game
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.qurio.QurioApp
@@ -11,6 +12,7 @@ import com.qurio.data.remote.model.Question
 import com.qurio.databinding.FragmentGameBinding
 import com.qurio.ui.base.BaseFragment
 import jakarta.inject.Inject
+import kotlin.time.Duration.Companion.microseconds
 
 class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::inflate), GameContract.View {
 
@@ -88,12 +90,32 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
         findNavController().navigate(action)
     }
 
+    override fun getQuestionTime(): Int {
+        return when(args.difficulty) {
+            "easy" -> 60
+            "medium" -> 40
+            "hard" -> 20
+            else -> 20
+        }
+    }
+
+    override fun updateTimer(secondsPassed: Int, totalSeconds: Int) {
+        val remaining = totalSeconds - secondsPassed
+        binding.timer.durationText.text = "$remaining Sec"
+        binding.timer.timerBar.layoutParams
+    }
+
+    override fun showTimeUp() {
+        Toast.makeText(requireContext(), "Time’s up!", Toast.LENGTH_SHORT).show()
+    }
+
     fun hideViews() {
         binding.questionHolder.root.visibility = View.GONE
         binding.topBar.visibility = View.GONE
         binding.questionAnswers.root.visibility = View.GONE
         binding.checkAnswersButton.visibility = View.GONE
         binding.skipAnswersButton.visibility = View.GONE
+        binding.timer.root.visibility = View.GONE
     }
 
     fun showViews() {
@@ -102,6 +124,7 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
         binding.questionAnswers.root.visibility = View.VISIBLE
         binding.checkAnswersButton.visibility = View.VISIBLE
         binding.skipAnswersButton.visibility = View.VISIBLE
+        binding.timer.root.visibility = View.VISIBLE
     }
 
     fun initClickListeners() {

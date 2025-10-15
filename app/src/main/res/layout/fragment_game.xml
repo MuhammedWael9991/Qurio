@@ -31,11 +31,22 @@
                 />
 
             <include
+                android:id="@+id/timer"
+                layout="@layout/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/top_bar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
+                />
+
+            <include
                 layout="@layout/question_item"
                 android:id="@+id/question_holder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/top_bar"
+                app:layout_constraintTop_toBottomOf="@id/timer"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginHorizontal="16dp"

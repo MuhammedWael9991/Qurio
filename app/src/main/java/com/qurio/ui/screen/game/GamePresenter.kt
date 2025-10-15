@@ -1,5 +1,6 @@
 package com.qurio.ui.screen.game
 
+import android.os.CountDownTimer
 import android.util.Log
 import com.qurio.data.remote.model.Question
 import com.qurio.data.repository.QuestionRepository
@@ -21,6 +22,9 @@ class GamePresenter @Inject constructor(
     private var correct = 0
     private var inCorrect = 0
     private var skipped = 0
+    private var timer: CountDownTimer? = null
+    private var secondsPassed = 0
+
 
     override fun attachView(view: GameContract.View) {
         this.view = view
@@ -65,6 +69,7 @@ class GamePresenter @Inject constructor(
     private fun showCurrentQuestion(){
         if (currentQuestionIndex < questions.size){
             view?.showQuestion(questions[currentQuestionIndex])
+            startTimer(view?.getQuestionTime() ?: 20)
         }else {
             view?.showResult(score, correct, inCorrect, skipped)
         }
@@ -94,6 +99,28 @@ class GamePresenter @Inject constructor(
     override fun skipQuestion() {
         skipped++
         nextQuestion()
+    }
+
+    override fun startTimer(totalSeconds: Int) {
+        timer?.cancel()
+        var elapsed = 0
+
+        timer = object : CountDownTimer(totalSeconds * 1000L, 1000L) {
+            override fun onTick(millisUntilFinished: Long) {
+                elapsed++
+                view?.updateTimer(elapsed, totalSeconds)
+            }
+
+            override fun onFinish() {
+                view?.showTimeUp()
+                skipQuestion()
+            }
+        }.start()
+    }
+
+    override fun stopTimer() {
+        timer?.cancel()
+        timer = null
     }
 
 }

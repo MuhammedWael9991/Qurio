@@ -11,6 +11,10 @@ interface GameContract {
         fun showCorrectAnswer()
         fun showWrongAnswer()
         fun showResult(score: Int, correct: Int, inCorrect: Int, skipped: Int)
+
+        fun getQuestionTime(): Int
+        fun updateTimer(secondsPassed: Int, totalSeconds: Int)
+        fun showTimeUp()
     }
 
     interface Presenter: BasePresenter<View> {
@@ -18,5 +22,8 @@ interface GameContract {
         fun checkAnswer(selectedAnswer: String)
         fun nextQuestion()
         fun skipQuestion()
+
+        fun startTimer(totalSeconds: Int)
+        fun stopTimer()
     }
 }
