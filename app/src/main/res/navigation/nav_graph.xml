@@ -44,9 +44,10 @@
             app:destination="@id/dialog_character"
             />
 
+
         <action
-            android:id="@+id/homeFragment_to_GameFragment"
-            app:destination="@id/GameFragment"
+            android:id="@+id/homeFragment_to_dialog_difficulty_level"
+            app:destination="@id/dialog_difficulty_level"
             />
 
     </fragment>
@@ -78,6 +79,18 @@
             app:argType="integer"
             />
 
+        <argument
+            android:name="amount"
+            app:argType="integer"
+            />
+
+<!--        <argument-->
+<!--            android:name="difficulty"-->
+<!--            app:argType="string"-->
+<!--            />-->
+
+
+
     </fragment>
 
     <dialog
@@ -94,6 +107,26 @@
         android:label="Character Dialog"
         tools:layout="@layout/dialog_character"
         />
+
+    <dialog
+        android:id="@+id/dialog_difficulty_level"
+        android:name="com.qurio.ui.screen.difficultyLevel.DifficultyLevelFragment"
+        android:label="Dialog difficulty level"
+        tools:layout="@layout/dialog_difficulty_level">
+
+        <action
+            android:id="@+id/dialog_difficulty_level_to_GameFragment"
+            app:destination="@id/GameFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false"
+            />
+
+        <argument
+            android:name="category"
+            app:argType="integer"
+            />
+
+    </dialog>
 
 
 

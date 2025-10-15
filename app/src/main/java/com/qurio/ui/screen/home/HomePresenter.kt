@@ -24,6 +24,6 @@ class HomePresenter @Inject constructor() : HomeContract.Presenter {
     }
 
     override fun onSelectGame(category: Int) {
-        view?.navigateToGame(category)
+        view?.navigateToDifficultyLevel(category)
     }
 }

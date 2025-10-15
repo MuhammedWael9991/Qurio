@@ -128,8 +128,9 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
         findNavController().navigate(R.id.homeFragment_to_LastGamesFragment)
     }
 
-    override fun navigateToGame(category: Int) {
-        val action = HomeFragmentDirections.homeFragmentToGameFragment(category)
+    override fun navigateToDifficultyLevel(category: Int) {
+        val action = HomeFragmentDirections.homeFragmentToDialogDifficultyLevel(category)
         findNavController().navigate(action)
     }
+
 }
