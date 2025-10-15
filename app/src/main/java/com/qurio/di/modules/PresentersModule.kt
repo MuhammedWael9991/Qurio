@@ -12,6 +12,8 @@ import com.qurio.ui.screen.lastGames.LastGamesContract
 import com.qurio.ui.screen.lastGames.LastGamesPresenter
 import com.qurio.ui.screen.onbording.OnboardingContract
 import com.qurio.ui.screen.onbording.OnboardingPresenter
+import com.qurio.ui.screen.result.ResultContract
+import com.qurio.ui.screen.result.ResultPresenter
 import dagger.Binds
 import dagger.Module
 
@@ -47,6 +49,11 @@ abstract class PresentersModule {
     abstract fun bindGamePresenter(
         presenter: GamePresenter
     ): GameContract.Presenter
+
+    @Binds
+    abstract fun bindResultPresenter(
+        presenter: ResultPresenter
+    ): ResultContract.Presenter
 
 
 }

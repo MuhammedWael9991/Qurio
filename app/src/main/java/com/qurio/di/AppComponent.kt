@@ -13,6 +13,7 @@ import com.qurio.ui.screen.games.GamesFragment
 import com.qurio.ui.screen.home.HomeFragment
 import com.qurio.ui.screen.lastGames.LastGamesFragment
 import com.qurio.ui.screen.onbording.OnboardingFragment
+import com.qurio.ui.screen.result.ResultFragment
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -36,6 +37,7 @@ interface AppComponent {
     fun inject(lastGamesFragment: LastGamesFragment)
     fun inject(characterFragment: CharacterFragment)
     fun inject(gameFragment: GameFragment)
+    fun inject(resultFragment: ResultFragment)
 
 
     @Component.Builder
