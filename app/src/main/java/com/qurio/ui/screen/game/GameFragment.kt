@@ -1,5 +1,6 @@
 package com.qurio.ui.screen.game
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -12,7 +13,6 @@ import com.qurio.data.remote.model.Question
 import com.qurio.databinding.FragmentGameBinding
 import com.qurio.ui.base.BaseFragment
 import jakarta.inject.Inject
-import kotlin.time.Duration.Companion.microseconds
 
 class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::inflate), GameContract.View {
 
@@ -69,6 +69,7 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
         binding.questionAnswers.answerText2.text = shuffledAnswers[1]
         binding.questionAnswers.answerText3.text = shuffledAnswers[2]
         binding.questionAnswers.answerText4.text = shuffledAnswers[3]
+        presenter.startTimer(getQuestionTime())
     }
 
     override fun showCorrectAnswer() {
@@ -102,7 +103,22 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
     override fun updateTimer(secondsPassed: Int, totalSeconds: Int) {
         val remaining = totalSeconds - secondsPassed
         binding.timer.durationText.text = "$remaining Sec"
-        binding.timer.timerBar.layoutParams
+
+        val parentWidth = binding.timer.root.width
+        if (parentWidth > 0) {
+            val progress = remaining.toFloat() / totalSeconds
+            val newWidth = (parentWidth * progress).toInt()
+
+            ValueAnimator.ofInt(binding.timer.timerBar.width, newWidth).apply {
+                duration = 300
+                addUpdateListener {
+                    val params = binding.timer.timerBar.layoutParams
+                    params.width = it.animatedValue as Int
+                    binding.timer.timerBar.layoutParams = params
+                }
+                start()
+            }
+        }
     }
 
     override fun showTimeUp() {
@@ -146,6 +162,7 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
 
         binding.checkAnswersButton.setOnClickListener {
             Log.d("checkAnswer", "selectedAnswer= $selectedAnswer")
+            presenter.stopTimer()
             presenter.checkAnswer(selectedAnswer)
             binding.skipAnswersButton.visibility = View.GONE
             binding.checkAnswersButton.visibility = View.GONE
@@ -154,6 +171,7 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
         }
 
         binding.nextButtonButton.setOnClickListener {
+            presenter.stopTimer()
             presenter.nextQuestion()
             binding.skipAnswersButton.visibility = View.VISIBLE
             binding.checkAnswersButton.visibility = View.VISIBLE
@@ -165,6 +183,7 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
         }
 
         binding.skipAnswersButton.setOnClickListener {
+            presenter.stopTimer()
             presenter.skipQuestion()
         }
     }

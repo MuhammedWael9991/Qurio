@@ -103,12 +103,12 @@ class GamePresenter @Inject constructor(
 
     override fun startTimer(totalSeconds: Int) {
         timer?.cancel()
-        var elapsed = 0
+        secondsPassed = 0
 
         timer = object : CountDownTimer(totalSeconds * 1000L, 1000L) {
             override fun onTick(millisUntilFinished: Long) {
-                elapsed++
-                view?.updateTimer(elapsed, totalSeconds)
+                secondsPassed++
+                view?.updateTimer(secondsPassed, totalSeconds)
             }
 
             override fun onFinish() {
@@ -117,6 +117,7 @@ class GamePresenter @Inject constructor(
             }
         }.start()
     }
+
 
     override fun stopTimer() {
         timer?.cancel()
