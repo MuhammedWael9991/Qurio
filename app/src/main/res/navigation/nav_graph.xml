@@ -84,10 +84,10 @@
             app:argType="integer"
             />
 
-<!--        <argument-->
-<!--            android:name="difficulty"-->
-<!--            app:argType="string"-->
-<!--            />-->
+        <argument
+            android:name="difficulty"
+            app:argType="string"
+            />
 
 
 
