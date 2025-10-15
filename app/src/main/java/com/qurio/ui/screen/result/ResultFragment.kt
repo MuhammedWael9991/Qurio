@@ -17,7 +17,7 @@ class ResultFragment: BaseFragment<FragmentResultBinding>(FragmentResultBinding:
 
     private val args: ResultFragmentArgs by navArgs()
 
-    override fun onViewCreated(view: android.view.View, savedInstanceState: android.os.Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.attachView(this)
         displayResults()
