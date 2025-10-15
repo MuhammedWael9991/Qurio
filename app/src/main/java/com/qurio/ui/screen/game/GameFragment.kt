@@ -21,7 +21,8 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.attachView(this)
-        presenter.getGameQuestions(args.category)
+        Log.d("args", "args= ${args.category}, ${args.difficulty}, ${args.amount}")
+        presenter.getGameQuestions(args.category, args.difficulty, args.amount)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
