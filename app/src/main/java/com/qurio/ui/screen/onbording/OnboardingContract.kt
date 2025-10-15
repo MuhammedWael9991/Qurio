@@ -7,6 +7,7 @@ interface OnboardingContract {
     interface View : BaseView {
         fun showPage(page: OnboardingPage, forward: Boolean)
         fun navigateToHome()
+        fun markOnboardingAsCompleted()
     }
 
     interface Presenter : BasePresenter<View> {

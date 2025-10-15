@@ -1,17 +1,17 @@
 package com.qurio.ui.screen.onbording
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Toast
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.qurio.QurioApp
 import com.qurio.R
 import com.qurio.databinding.FragmentOnbordingBinding
 import com.qurio.ui.base.BaseFragment
 import jakarta.inject.Inject
+import androidx.core.content.edit
 
 class OnboardingFragment
     : BaseFragment<FragmentOnbordingBinding>(FragmentOnbordingBinding::inflate),
@@ -96,6 +96,13 @@ class OnboardingFragment
 
     override fun showError(message: String) {
         TODO("Not yet implemented")
+    }
+
+    override fun markOnboardingAsCompleted() {
+        val sharedPref = requireContext().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        sharedPref.edit {
+            putBoolean("onboarding_completed", true)
+        }
     }
 }
 

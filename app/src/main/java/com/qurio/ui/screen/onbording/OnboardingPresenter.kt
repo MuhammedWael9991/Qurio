@@ -1,14 +1,15 @@
 package com.qurio.ui.screen.onbording
 
+import android.content.Context
 import com.qurio.R
 import com.qurio.data.repository.AchievementsRepository
 import com.qurio.data.repository.CharactersRepository
-import com.qurio.data.repository.QuestionRepository
 import com.qurio.data.repository.UserRepository
 import jakarta.inject.Inject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import androidx.core.content.edit
 
 class OnboardingPresenter @Inject constructor(
     private val charactersRepository: CharactersRepository,
@@ -80,7 +81,10 @@ class OnboardingPresenter @Inject constructor(
     }
 
     override fun onSwapUp() {
-        view?.navigateToHome()
+        view?.let {
+            it.markOnboardingAsCompleted()
+            it.navigateToHome()
+        }
     }
 
     override fun start() {
