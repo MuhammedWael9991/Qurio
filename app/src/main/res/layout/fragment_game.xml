@@ -79,6 +79,7 @@
             >
 
             <TextView
+                android:id="@+id/check_answers_text"
                 style="@style/Typography.label.large"
                 android:textColor="@color/On_primary"
                 android:text="@string/check"
@@ -88,6 +89,30 @@
                 />
 
         </FrameLayout>
+        <FrameLayout
+            android:id="@+id/next_button_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="6.5:1"
+            android:background="@drawable/primary_button_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:id="@+id/next_button_text"
+                style="@style/Typography.label.large"
+                android:textColor="@color/On_primary"
+                android:text="@string/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                />
+
+        </FrameLayout>
+
         <FrameLayout
             android:id="@+id/skip_answers_button"
             android:layout_width="0dp"
