@@ -1,0 +1,25 @@
+package com.qurio.data.repositoryImpl
+
+import com.qurio.data.local.dao.UserDao
+import com.qurio.data.local.entity.UserEntity
+import com.qurio.data.repository.UserRepository
+import jakarta.inject.Inject
+
+class UserRepositoryImpl @Inject constructor(
+    private val dao: UserDao
+): UserRepository {
+    override suspend fun initializeUserData() {
+        if (dao.getCount() == 0){
+            dao.insertUser(
+                user = UserEntity(
+                    id = 1,
+                    characterId = 1,
+                    totalPoints = 0,
+                    lives = 3,
+                    awards = 0,
+                    streak = 0
+                )
+            )
+        }
+    }
+}

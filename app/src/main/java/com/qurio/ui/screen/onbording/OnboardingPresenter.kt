@@ -4,6 +4,7 @@ import com.qurio.R
 import com.qurio.data.repository.AchievementsRepository
 import com.qurio.data.repository.CharactersRepository
 import com.qurio.data.repository.QuestionRepository
+import com.qurio.data.repository.UserRepository
 import jakarta.inject.Inject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +12,8 @@ import kotlinx.coroutines.launch
 
 class OnboardingPresenter @Inject constructor(
     private val charactersRepository: CharactersRepository,
-    private val achievementsRepository: AchievementsRepository
+    private val achievementsRepository: AchievementsRepository,
+    private val userRepository: UserRepository
 ) : OnboardingContract.Presenter {
 
     init {
@@ -51,6 +53,7 @@ class OnboardingPresenter @Inject constructor(
         CoroutineScope(Dispatchers.IO).launch {
             charactersRepository.initCharacters()
             achievementsRepository.initAchievements()
+            userRepository.initializeUserData()
         }
     }
 
