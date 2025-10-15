@@ -204,6 +204,7 @@
         />
 
     <TextView
+        android:id="@+id/result_title"
         style="@style/Typography.headline.medium"
         android:textColor="@color/On_primary"
         android:text="Great Job"

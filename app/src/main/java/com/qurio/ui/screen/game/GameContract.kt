@@ -14,7 +14,7 @@ interface GameContract {
     }
 
     interface Presenter: BasePresenter<View> {
-        fun getGameQuestions(categoryId: Int , difficulty: String = "easy" , amount: Int = 1)
+        fun getGameQuestions(categoryId: Int , difficulty: String , amount: Int = 1)
         fun checkAnswer(selectedAnswer: String)
         fun nextQuestion()
         fun skipQuestion()

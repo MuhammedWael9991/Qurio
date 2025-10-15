@@ -82,7 +82,8 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
             score = score,
             correct = correct,
             inCorrect = inCorrect,
-            skipped = skipped
+            skipped = skipped,
+            difficulty = args.difficulty
         )
         findNavController().navigate(action)
     }
