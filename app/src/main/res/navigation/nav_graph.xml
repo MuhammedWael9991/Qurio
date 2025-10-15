@@ -89,6 +89,32 @@
             app:argType="string"
             />
 
+        <action
+            android:id="@+id/gameFragment_to_ResultFragment"
+            app:destination="@id/ResultFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/ResultFragment"
+        android:name="com.qurio.ui.screen.result.ResultFragment"
+        android:label="Result Fragment"
+        tools:layout="@layout/fragment_result">
+
+        <argument
+            android:name="score"
+            app:argType="integer"/>
+
+        <argument
+            android:name="correct"
+            app:argType="integer"/>
+
+        <argument
+            android:name="inCorrect"
+            app:argType="integer"/>
+
+        <argument
+            android:name="skipped"
+            app:argType="integer"/>
 
 
     </fragment>

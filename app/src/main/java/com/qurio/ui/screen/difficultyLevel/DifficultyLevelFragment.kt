@@ -7,8 +7,7 @@ import androidx.navigation.fragment.navArgs
 import com.qurio.R
 import com.qurio.databinding.DialogDifficultyLevelBinding
 import com.qurio.ui.base.BaseDialogFragment
-import com.qurio.ui.screen.game.GameFragmentArgs
-import jakarta.inject.Inject
+
 
 class DifficultyLevelFragment : BaseDialogFragment<DialogDifficultyLevelBinding>(DialogDifficultyLevelBinding::inflate) {
 
