@@ -46,6 +46,7 @@
                 android:layout_height="40dp"/>
 
             <TextView
+                android:id="@+id/point_number"
                 style="@style/Typography.title.medium"
                 android:textColor="@color/Shade_Primary"
                 android:text="TODO"
