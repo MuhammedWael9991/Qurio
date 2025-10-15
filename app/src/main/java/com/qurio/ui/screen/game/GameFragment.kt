@@ -80,13 +80,20 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
         selectedOption?.setBackgroundResource(R.drawable.answer_option_false)
     }
 
-    override fun showResult(score: Int, correct: Int, inCorrect: Int, skipped: Int) {
+    override fun showResult(score: Int, correct: Int, inCorrect: Int, skipped: Int, duration: Long) {
+        val totalSeconds = duration / 1000
+        val minutes = totalSeconds / 60
+        val seconds = totalSeconds % 60
+
+        val formattedTime = String.format("%02d:%02d", minutes, seconds)
+
         val action = GameFragmentDirections.gameFragmentToResultFragment(
             score = score,
             correct = correct,
             inCorrect = inCorrect,
             skipped = skipped,
-            difficulty = args.difficulty
+            difficulty = args.difficulty,
+            totalTime = formattedTime
         )
         findNavController().navigate(action)
     }

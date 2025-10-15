@@ -10,7 +10,7 @@ interface GameContract {
         fun showQuestion(question: Question)
         fun showCorrectAnswer()
         fun showWrongAnswer()
-        fun showResult(score: Int, correct: Int, inCorrect: Int, skipped: Int)
+        fun showResult(score: Int, correct: Int, inCorrect: Int, skipped: Int, duration: Long)
 
         fun getQuestionTime(): Int
         fun updateTimer(secondsPassed: Int, totalSeconds: Int)

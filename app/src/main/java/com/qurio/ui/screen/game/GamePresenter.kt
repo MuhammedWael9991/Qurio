@@ -25,6 +25,10 @@ class GamePresenter @Inject constructor(
     private var timer: CountDownTimer? = null
     private var secondsPassed = 0
 
+    private var gameStartTime: Long = 0
+    private var gameEndTime: Long = 0
+    private var gameTimerRunning = false
+
 
     override fun attachView(view: GameContract.View) {
         this.view = view
@@ -51,6 +55,8 @@ class GamePresenter @Inject constructor(
 
                 withContext(Dispatchers.Main){
                     view?.hideLoading()
+                    gameStartTime = System.currentTimeMillis()
+                    gameTimerRunning = true
                     showCurrentQuestion()
                 }
 
@@ -71,7 +77,10 @@ class GamePresenter @Inject constructor(
             view?.showQuestion(questions[currentQuestionIndex])
             startTimer(view?.getQuestionTime() ?: 20)
         }else {
-            view?.showResult(score, correct, inCorrect, skipped)
+            gameEndTime = System.currentTimeMillis()
+            gameTimerRunning = false
+            val totalGameTime = gameEndTime - gameStartTime
+            view?.showResult(score, correct, inCorrect, skipped, totalGameTime)
         }
     }
 
@@ -92,7 +101,10 @@ class GamePresenter @Inject constructor(
             currentQuestionIndex++
             showCurrentQuestion()
         } else {
-            view?.showResult(score, correct, inCorrect, skipped)
+            gameEndTime = System.currentTimeMillis()
+            gameTimerRunning = false
+            val totalGameTime = gameEndTime - gameStartTime
+            view?.showResult(score, correct, inCorrect, skipped, totalGameTime)
         }
     }
 
