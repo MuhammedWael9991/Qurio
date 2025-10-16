@@ -63,7 +63,8 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
     }
 
     override fun showError(message: String) {
-        TODO("Not yet implemented")
+        hideViews()
+        binding.noConnectionView.root.visibility = View.VISIBLE
     }
 
     override fun showQuestion(question: Question) {
