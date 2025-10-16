@@ -6,4 +6,6 @@ interface LastGamesRepository {
     suspend fun getLastGames(): List<LastGamesEntity>
     suspend fun insertLastGame(lastGame: LastGamesEntity)
 
+    suspend fun getLastFiveGames(): List<LastGamesEntity>
+
 }

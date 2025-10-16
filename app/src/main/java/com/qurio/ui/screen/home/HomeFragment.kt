@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.qurio.QurioApp
 import com.qurio.R
+import com.qurio.data.local.entity.LastGamesEntity
 import com.qurio.data.local.entity.UserEntity
 import com.qurio.databinding.FragmentHomeBinding
 import com.qurio.ui.base.BaseFragment
@@ -145,5 +146,10 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
             binding.statistics.eliteBadge.visibility = View.GONE
         }
     }
+
+    override fun displayLastFiveGames(lastGames: List<LastGamesEntity>) {
+        TODO("Not yet implemented")
+    }
+
 
 }

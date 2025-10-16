@@ -1,5 +1,6 @@
 package com.qurio.ui.screen.home
 
+import com.qurio.data.repository.LastGamesRepository
 import com.qurio.data.repository.UserRepository
 import jakarta.inject.Inject
 import kotlinx.coroutines.CoroutineScope
@@ -7,7 +8,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class HomePresenter @Inject constructor(
-    private val userRepository: UserRepository
+    private val userRepository: UserRepository,
+    private val lastGamesRepository: LastGamesRepository
 ) : HomeContract.Presenter {
 
     private var view: HomeContract.View? = null
@@ -38,5 +40,12 @@ class HomePresenter @Inject constructor(
 
     override fun onSelectGame(category: Int) {
         view?.navigateToDifficultyLevel(category)
+    }
+
+    override fun getLastFiveGames() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val lastGames = lastGamesRepository.getLastFiveGames()
+            view?.displayLastFiveGames(lastGames)
+        }
     }
 }

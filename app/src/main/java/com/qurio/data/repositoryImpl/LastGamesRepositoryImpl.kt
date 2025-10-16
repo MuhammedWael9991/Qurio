@@ -9,10 +9,14 @@ class LastGamesRepositoryImpl @Inject constructor(
     private val dao: LastGamesDao
 ): LastGamesRepository {
     override suspend fun getLastGames(): List<LastGamesEntity> {
-        TODO("Not yet implemented")
+        return dao.getLastGames()
     }
 
     override suspend fun insertLastGame(lastGame: LastGamesEntity) {
         dao.insertLastGame(lastGame)
+    }
+
+    override suspend fun getLastFiveGames(): List<LastGamesEntity> {
+        return dao.getLastFiveGames()
     }
 }

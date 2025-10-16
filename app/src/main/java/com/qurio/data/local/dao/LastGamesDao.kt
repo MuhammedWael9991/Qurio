@@ -14,4 +14,7 @@ interface LastGamesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertLastGame(lastGame: LastGamesEntity)
+
+    @Query("SELECT * FROM last_games ORDER BY date DESC LIMIT 5")
+    suspend fun getLastFiveGames(): List<LastGamesEntity>
 }
