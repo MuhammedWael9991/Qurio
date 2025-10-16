@@ -9,7 +9,6 @@ data class LastGamesEntity(
     val category: String,
     val points: Int,
     val stars: Int,
-    val minutes: Int,
-    val seconds: Int,
+    val duration: String,
     val date: String
 )

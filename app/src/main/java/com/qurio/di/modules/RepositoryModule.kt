@@ -2,14 +2,17 @@ package com.qurio.di.modules
 
 import com.qurio.data.local.dao.AchievementsDao
 import com.qurio.data.local.dao.CharactersDao
+import com.qurio.data.local.dao.LastGamesDao
 import com.qurio.data.local.dao.UserDao
 import com.qurio.data.remote.api.TriviaApi
 import com.qurio.data.repository.AchievementsRepository
 import com.qurio.data.repository.CharactersRepository
+import com.qurio.data.repository.LastGamesRepository
 import com.qurio.data.repository.QuestionRepository
 import com.qurio.data.repository.UserRepository
 import com.qurio.data.repositoryImpl.AchievementsRepositoryImpl
 import com.qurio.data.repositoryImpl.CharactersRepositoryImpl
+import com.qurio.data.repositoryImpl.LastGamesRepositoryImpl
 import com.qurio.data.repositoryImpl.QuestionRepositoryImpl
 import com.qurio.data.repositoryImpl.UserRepositoryImpl
 import dagger.Module
@@ -42,5 +45,11 @@ object RepositoryModule {
     @Singleton
     fun provideUserRepository(dao: UserDao): UserRepository {
         return UserRepositoryImpl(dao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideLastGamesRepository(dao: LastGamesDao): LastGamesRepository {
+        return LastGamesRepositoryImpl(dao)
     }
 }

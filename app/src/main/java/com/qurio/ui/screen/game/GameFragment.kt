@@ -13,6 +13,9 @@ import com.qurio.data.remote.model.Question
 import com.qurio.databinding.FragmentGameBinding
 import com.qurio.ui.base.BaseFragment
 import jakarta.inject.Inject
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::inflate), GameContract.View {
 
@@ -85,7 +88,14 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
         val minutes = totalSeconds / 60
         val seconds = totalSeconds % 60
 
-        val formattedTime = String.format("%02d:%02d", minutes, seconds)
+        val formattedTime = if (minutes > 0) {
+            "${minutes}m ${seconds}sec"
+        } else {
+            "${seconds}sec"
+        }
+        val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+        val currentDate = dateFormat.format(Date())
+
 
         val action = GameFragmentDirections.gameFragmentToResultFragment(
             score = score,
@@ -93,7 +103,9 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
             inCorrect = inCorrect,
             skipped = skipped,
             difficulty = args.difficulty,
-            totalTime = formattedTime
+            totalTime = formattedTime,
+            date = currentDate,
+            category = getCurrentCategoryName(args.category)
         )
         findNavController().navigate(action)
     }
@@ -234,6 +246,22 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
         )
 
         options.forEach { it.setBackgroundResource(R.drawable.button_outlined_disabled) }
+    }
+
+    private fun getCurrentCategoryName(categoryId: Int): String {
+        return when (categoryId) {
+            9 -> "General Knowledge"
+            11 -> "Film"
+            12 -> "Music"
+            14 -> "TV"
+            17 -> "Science & Nature"
+            21 -> "Sport & Leisure"
+            22 -> "Geography"
+            23 -> "History"
+            24 -> "Society & Culture"
+            25 -> "Arts & Literature"
+            else -> "Unknown Category"
+        }
     }
 
 }

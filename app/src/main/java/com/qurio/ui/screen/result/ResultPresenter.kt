@@ -1,5 +1,7 @@
 package com.qurio.ui.screen.result
 
+import com.qurio.data.local.entity.LastGamesEntity
+import com.qurio.data.repository.LastGamesRepository
 import com.qurio.data.repository.UserRepository
 import jakarta.inject.Inject
 import kotlinx.coroutines.CoroutineScope
@@ -7,7 +9,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ResultPresenter @Inject constructor(
-    private val userRepository: UserRepository
+    private val userRepository: UserRepository,
+    private val lastGamesRepository: LastGamesRepository
 ): ResultContract.Presenter {
 
     private var view: ResultContract.View? = null
@@ -18,6 +21,21 @@ class ResultPresenter @Inject constructor(
 
     override fun detachView() {
         view = null
+    }
+
+    override fun storeGameResult(category: String, point: Int, stars: Int, duration: String, data: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            lastGamesRepository.insertLastGame(
+                LastGamesEntity(
+                    id = 0,
+                    category = category,
+                    points = point,
+                    stars = stars,
+                    duration = duration,
+                    date = data
+                )
+            )
+        }
     }
 
     override fun storeUserPoints(points: Int) {

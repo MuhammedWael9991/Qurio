@@ -18,10 +18,13 @@ class ResultFragment: BaseFragment<FragmentResultBinding>(FragmentResultBinding:
 
     private val args: ResultFragmentArgs by navArgs()
 
+    private var starsNumber = 0
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.attachView(this)
         displayResults()
+        presenter.storeGameResult(args.category, args.score, starsNumber, args.totalTime, args.date)
         storeUsePoints()
         initListener()
     }
@@ -85,6 +88,14 @@ class ResultFragment: BaseFragment<FragmentResultBinding>(FragmentResultBinding:
         stars.oneStar.visibility = if (one) View.VISIBLE else View.GONE
         stars.twoStars.visibility = if (two) View.VISIBLE else View.GONE
         stars.threeStars.visibility = if (three) View.VISIBLE else View.GONE
+
+        starsNumber = when {
+            one -> 1
+            two -> 2
+            three -> 3
+            else -> 0
+        }
+
     }
 
     private fun showStars(correct: Int, difficulty: String) {

@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.qurio.data.local.dao.AchievementsDao
 import com.qurio.data.local.dao.CharactersDao
+import com.qurio.data.local.dao.LastGamesDao
 import com.qurio.data.local.dao.UserDao
 import com.qurio.data.local.database.AppDatabase
 import dagger.Module
@@ -31,5 +32,10 @@ object DatabaseModule {
     @Provides
     fun provideAchievementsDao(db: AppDatabase): AchievementsDao {
         return db.achievementsDao()
+    }
+
+    @Provides
+    fun provideLastGamesDao(db: AppDatabase): LastGamesDao {
+        return db.lastGamesDao()
     }
 }

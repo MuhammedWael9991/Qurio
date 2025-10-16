@@ -10,5 +10,6 @@ interface ResultContract {
 
     interface Presenter: BasePresenter<View> {
         fun storeUserPoints(points: Int)
+        fun storeGameResult(category: String, point: Int, stars: Int, duration: String, data: String)
     }
 }
