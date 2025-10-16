@@ -144,6 +144,10 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
         Toast.makeText(requireContext(), "Time’s up!", Toast.LENGTH_SHORT).show()
     }
 
+    override fun updateCurrentQuestionNumber(current: Int, total: Int) {
+        binding.questionHolder.questionNumber.text = "Q $current/$total"
+    }
+
     fun hideViews() {
         binding.questionHolder.root.visibility = View.GONE
         binding.topBar.visibility = View.GONE

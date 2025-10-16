@@ -74,6 +74,7 @@ class GamePresenter @Inject constructor(
 
     private fun showCurrentQuestion(){
         if (currentQuestionIndex < questions.size){
+            updateQuestionNumber()
             view?.showQuestion(questions[currentQuestionIndex])
             startTimer(view?.getQuestionTime() ?: 20)
         }else {
@@ -134,6 +135,10 @@ class GamePresenter @Inject constructor(
     override fun stopTimer() {
         timer?.cancel()
         timer = null
+    }
+
+    override fun updateQuestionNumber() {
+        view?.updateCurrentQuestionNumber(currentQuestionIndex + 1, questions.size)
     }
 
 }
