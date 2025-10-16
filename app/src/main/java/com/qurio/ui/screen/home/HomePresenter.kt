@@ -1,5 +1,6 @@
 package com.qurio.ui.screen.home
 
+import android.util.Log
 import com.qurio.data.repository.LastGamesRepository
 import com.qurio.data.repository.UserRepository
 import jakarta.inject.Inject
@@ -45,6 +46,7 @@ class HomePresenter @Inject constructor(
     override fun getLastFiveGames() {
         CoroutineScope(Dispatchers.IO).launch {
             val lastGames = lastGamesRepository.getLastFiveGames()
+            Log.d("lastGames", "lastGames = $lastGames")
             view?.displayLastFiveGames(lastGames)
         }
     }

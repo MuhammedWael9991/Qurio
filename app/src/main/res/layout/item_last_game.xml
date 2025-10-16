@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="12dp"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -58,6 +60,7 @@
                     android:layout_gravity="center_vertical"
                     />
                 <TextView
+                    android:id="@+id/lastGamesPoitns"
                     style="@style/Typography.label.medium"
                     android:text="TODO"
                     tools:text="304"
@@ -92,6 +95,7 @@
                     android:layout_gravity="center_vertical"
                     />
                 <TextView
+                    android:id="@+id/lastGameStars"
                     style="@style/Typography.label.medium"
                     android:text="TODO"
                     tools:text="0"
@@ -126,6 +130,7 @@
                     android:layout_gravity="center_vertical"
                     />
                 <TextView
+                    android:id="@+id/duration"
                     style="@style/Typography.label.medium"
                     android:text="TODO"
                     tools:text="1m 33sec"
