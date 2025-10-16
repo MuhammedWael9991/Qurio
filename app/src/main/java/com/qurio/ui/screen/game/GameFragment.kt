@@ -12,6 +12,8 @@ import com.qurio.R
 import com.qurio.data.remote.model.Question
 import com.qurio.databinding.FragmentGameBinding
 import com.qurio.ui.base.BaseFragment
+import com.qurio.utilities.playSequentialBounce
+import com.qurio.utilities.popInAnimation
 import jakarta.inject.Inject
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -77,10 +79,12 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
 
     override fun showCorrectAnswer() {
         selectedOption?.setBackgroundResource(R.drawable.answer_option_true)
+        showBonus()
     }
 
     override fun showWrongAnswer() {
         selectedOption?.setBackgroundResource(R.drawable.answer_option_false)
+        showMinus()
     }
 
     override fun showResult(score: Int, correct: Int, inCorrect: Int, skipped: Int, duration: Long) {
@@ -146,6 +150,32 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
 
     override fun updateCurrentQuestionNumber(current: Int, total: Int) {
         binding.questionHolder.questionNumber.text = "Q $current/$total"
+    }
+
+    override fun showBonus() {
+        binding.bounceView.root.visibility = View.VISIBLE
+        val bounceViews = listOf(
+            binding.bounceView.bounce1.root,
+            binding.bounceView.bounce2.root,
+            binding.bounceView.bounce3.root,
+            binding.bounceView.bounce4.root,
+            binding.bounceView.bounce5.root,
+            binding.bounceView.bounce6.root
+        )
+        playSequentialBounce(bounceViews)
+    }
+
+    override fun showMinus() {
+        binding.minusView.root.visibility = View.VISIBLE
+        val minusViews = listOf(
+            binding.minusView.minus1.root,
+            binding.minusView.minus2.root,
+            binding.minusView.minus3.root,
+            binding.minusView.minus4.root,
+            binding.minusView.minus5.root,
+            binding.minusView.minus6.root
+        )
+        playSequentialBounce(minusViews)
     }
 
     fun hideViews() {

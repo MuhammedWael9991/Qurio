@@ -4,116 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Surface">
+>
 
-    <FrameLayout
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="180dp"
-        android:src="@drawable/green_circle"
+    <include
+        android:id="@+id/bounce1"
+        layout="@layout/item_circle_bonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.824"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/green_circle"
-        >
-        <TextView
-            style="@style/BonusText"
-            android:text="@string/_1"
-            />
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/FrameLayout"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/green_circle"
+        android:layout_marginTop="180dp"
+        />
+    <include
+        android:id="@+id/bounce2"
+        layout="@layout/item_circle_bonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.824"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.514"
-        android:background="@drawable/green_circle"
-        >
-        <TextView
-            style="@style/BonusText"
-            android:text="@string/_1"
-            />
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/green_circle"
+        />
+    <include
+        android:id="@+id/bounce3"
+        layout="@layout/item_circle_bonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.384"
-        android:background="@drawable/green_circle"
-        >
-        <TextView
-            style="@style/BonusText"
-            android:text="@string/_1"
-            />
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/green_circle"
-        android:src="@drawable/green_circle"
+        />
+    <include
+        android:id="@+id/bounce4"
+        layout="@layout/item_circle_bonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.6"
-        >
-        <TextView
-            style="@style/BonusText"
-            android:text="@string/_1"
-            />
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/green_circle"
+        />
+    <include
+        android:id="@+id/bounce5"
+        layout="@layout/item_circle_bonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.305"
-        android:background="@drawable/green_circle"
-        >
-        <TextView
-            style="@style/BonusText"
-            android:text="@string/_1"
-            />
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/green_circle"
+        />
+    <include
+        android:id="@+id/bounce6"
+        layout="@layout/item_circle_bonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499"
-        android:background="@drawable/green_circle"
-        >
-
-        <TextView
-            style="@style/BonusText"
-            android:text="@string/_1"
-            />
-        
-    </FrameLayout>
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

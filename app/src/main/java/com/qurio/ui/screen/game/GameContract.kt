@@ -16,6 +16,8 @@ interface GameContract {
         fun updateTimer(secondsPassed: Int, totalSeconds: Int)
         fun showTimeUp()
         fun updateCurrentQuestionNumber(current: Int, total: Int)
+        fun showMinus()
+        fun showBonus()
     }
 
     interface Presenter: BasePresenter<View> {
