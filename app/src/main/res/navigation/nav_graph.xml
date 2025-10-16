@@ -58,6 +58,11 @@
         android:label="Games"
         tools:layout="@layout/fragment_games">
 
+        <action
+            android:id="@+id/gamesFragment_to_dialog_difficulty_level"
+            app:destination="@id/dialog_difficulty_level"
+            />
+
     </fragment>
 
     <fragment

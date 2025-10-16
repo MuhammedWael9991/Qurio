@@ -13,4 +13,8 @@ class GamesPresenter @Inject constructor(): GamesContract.Presenter {
     override fun detachView() {
         view = null
     }
+
+    override fun onClickGame(categoryId: Int) {
+        view?.navigateToGame(categoryId)
+    }
 }
