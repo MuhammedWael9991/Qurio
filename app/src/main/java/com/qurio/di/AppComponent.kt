@@ -8,6 +8,7 @@ import com.qurio.di.modules.NetworkModule
 import com.qurio.di.modules.PresentersModule
 import com.qurio.di.modules.RepositoryModule
 import com.qurio.ui.screen.achievements.AchievementFragment
+import com.qurio.ui.screen.buyLife.BuyLifeFragment
 import com.qurio.ui.screen.character.CharacterFragment
 import com.qurio.ui.screen.game.GameFragment
 import com.qurio.ui.screen.games.GamesFragment
@@ -40,6 +41,7 @@ interface AppComponent {
     fun inject(gameFragment: GameFragment)
     fun inject(resultFragment: ResultFragment)
     fun inject(achievementFragment: AchievementFragment)
+    fun inject(buyLifeFragment: BuyLifeFragment)
 
 
     @Component.Builder

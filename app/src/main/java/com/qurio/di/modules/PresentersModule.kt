@@ -2,6 +2,8 @@ package com.qurio.di.modules
 
 import com.qurio.ui.screen.achievements.AchievementContract
 import com.qurio.ui.screen.achievements.AchievementPresenter
+import com.qurio.ui.screen.buyLife.BuyLifeContract
+import com.qurio.ui.screen.buyLife.BuyLifePresenter
 import com.qurio.ui.screen.character.CharacterContract
 import com.qurio.ui.screen.character.CharacterPresenter
 import com.qurio.ui.screen.game.GameContract
@@ -61,5 +63,10 @@ abstract class PresentersModule {
     abstract fun bindAchievementPresenter(
         presenter: AchievementPresenter
     ): AchievementContract.Presenter
+
+    @Binds
+    abstract fun bindBuyLifePresenter(
+        presenter: BuyLifePresenter
+    ): BuyLifeContract.Presenter
 
 }

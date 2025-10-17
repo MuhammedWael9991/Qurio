@@ -35,4 +35,8 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun getPoints(): Int {
         return dao.getPoints()
     }
+
+    override suspend fun buyLife() {
+        dao.buyLife()
+    }
 }

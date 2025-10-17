@@ -8,5 +8,6 @@ interface UserRepository {
     suspend fun getUserData(): UserEntity
     suspend fun updateUserPoints(point: Int)
     suspend fun getPoints(): Int
+    suspend fun buyLife()
 
 }
