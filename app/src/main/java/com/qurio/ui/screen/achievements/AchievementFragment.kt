@@ -157,7 +157,7 @@ class AchievementFragment: BaseDialogFragment<DialogAchievementBinding>(DialogAc
 
     fun setupListeners() {
         binding.okButton.setOnClickListener {
-            presenter.loadAchievements()
+            dismiss()
         }
         binding.okDetailsButton.setOnClickListener {
             dismiss()
