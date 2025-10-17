@@ -120,4 +120,8 @@ class AchievementsRepositoryImpl @Inject constructor(
     override suspend fun getAchievements(): List<AchievementsEntity> {
         return dao.getAchievements()
     }
+
+    override suspend fun unlockAchievement(achievementId: Int) {
+        dao.unlockAchievement(achievementId)
+    }
 }

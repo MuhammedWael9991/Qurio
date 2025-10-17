@@ -6,4 +6,5 @@ interface AchievementsRepository {
 
     suspend fun initAchievements()
     suspend fun getAchievements(): List<AchievementsEntity>
+    suspend fun unlockAchievement(achievementId: Int)
 }
