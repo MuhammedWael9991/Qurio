@@ -100,6 +100,22 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
         }
     }
 
+    override fun navigateToCharacter() {
+        findNavController().navigate(R.id.homeFragment_to_DialogCharacterFragment)
+    }
+
+    override fun navigateToAchievements() {
+        findNavController().navigate(R.id.homeFragment_to_DialogAchievementFragment)
+    }
+
+    override fun navigateToBuyLives() {
+        findNavController().navigate(R.id.homeFragment_to_dialogBuyLife)
+    }
+
+    override fun navigateToSettings() {
+        findNavController().navigate(R.id.homeFragment_to_DialogSettingsFragment)
+    }
+
     fun displayGames(){
         val gamePage = listOf(
             GamePage(
@@ -165,14 +181,18 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
         }
 
         binding.topBar.onSettingsClick = {
-            findNavController().navigate(R.id.homeFragment_to_DialogSettingsFragment)
+            presenter.showSettingsDialog()
         }
 
         binding.topBar.onClickAvatar = {
-            findNavController().navigate(R.id.homeFragment_to_DialogCharacterFragment)
+            presenter.showCharacterDialog()
+
         }
         binding.statistics.awardsHolder.setOnClickListener {
-            findNavController().navigate(R.id.homeFragment_to_DialogAchievementFragment)
+            presenter.showAchievementDialog()
+        }
+        binding.statistics.livesHolder.setOnClickListener {
+            presenter.showBuyLivesDialog()
         }
     }
 

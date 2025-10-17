@@ -50,4 +50,20 @@ class HomePresenter @Inject constructor(
             view?.displayLastFiveGames(lastGames)
         }
     }
+
+    override fun showSettingsDialog() {
+        view?.navigateToSettings()
+    }
+
+    override fun showCharacterDialog() {
+        view?.navigateToCharacter()
+    }
+
+    override fun showAchievementDialog() {
+        view?.navigateToAchievements()
+    }
+
+    override fun showBuyLivesDialog() {
+        view?.navigateToBuyLives()
+    }
 }

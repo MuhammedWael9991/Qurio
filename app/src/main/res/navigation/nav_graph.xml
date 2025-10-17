@@ -25,6 +25,11 @@
         tools:layout="@layout/fragment_home">
 
         <action
+            android:id="@+id/homeFragment_to_dialogBuyLife"
+            app:destination="@id/dialog_buy_life"
+            />
+
+        <action
             android:id="@+id/homeFragment_to_GamesFragment"
             app:destination="@id/GamesFragment"
             />
@@ -192,6 +197,12 @@
         android:name="com.qurio.ui.screen.achievements.AchievementFragment"
         android:label="Dialog Achievements"
         tools:layout="@layout/dialog_achievement"/>
+
+    <dialog
+        android:id="@+id/dialog_buy_life"
+        android:name="com.qurio.ui.screen.buyLife.BuyLifeFragment"
+        android:label="Dialog Buy Life"
+        tools:layout="@layout/dialog_buy_life"/>
 
 
 

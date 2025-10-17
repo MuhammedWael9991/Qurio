@@ -12,6 +12,11 @@ interface HomeContract {
         fun navigateToDifficultyLevel(category: Int)
         fun displayUserData(user: UserEntity)
         fun displayLastFiveGames(lastGames: List<LastGamesEntity>)
+        fun navigateToCharacter()
+        fun navigateToAchievements()
+        fun navigateToBuyLives()
+
+        fun navigateToSettings()
     }
 
     interface Presenter : BasePresenter<View> {
@@ -20,5 +25,9 @@ interface HomeContract {
         fun onClickShowAllLastGames()
         fun onSelectGame(category: Int)
         fun getLastFiveGames()
+        fun showSettingsDialog()
+        fun showCharacterDialog()
+        fun showAchievementDialog()
+        fun showBuyLivesDialog()
     }
 }
