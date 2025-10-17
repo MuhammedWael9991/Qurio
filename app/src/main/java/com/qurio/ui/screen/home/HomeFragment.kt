@@ -171,6 +171,9 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
         binding.topBar.onClickAvatar = {
             findNavController().navigate(R.id.homeFragment_to_DialogCharacterFragment)
         }
+        binding.statistics.awardsHolder.setOnClickListener {
+            findNavController().navigate(R.id.homeFragment_to_DialogAchievementFragment)
+        }
     }
 
 }

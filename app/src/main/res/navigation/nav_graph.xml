@@ -30,6 +30,11 @@
             />
 
         <action
+            android:id="@+id/homeFragment_to_DialogAchievementFragment"
+            app:destination="@id/dialog_achievements"
+            />
+
+        <action
             android:id="@+id/homeFragment_to_LastGamesFragment"
             app:destination="@id/LastGamesFragment"
             />
@@ -181,6 +186,12 @@
             />
 
     </dialog>
+
+    <dialog
+        android:id="@+id/dialog_achievements"
+        android:name="com.qurio.ui.screen.achievements.AchievementFragment"
+        android:label="Dialog Achievements"
+        tools:layout="@layout/dialog_achievement"/>
 
 
 

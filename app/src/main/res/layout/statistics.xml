@@ -16,7 +16,7 @@
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/left"
+            android:id="@+id/lives_holder"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
@@ -91,8 +91,8 @@
             app:layout_constraintHorizontal_weight="1.2"
             android:background="@drawable/statstics_big_middle"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/left"
-            app:layout_constraintEnd_toStartOf="@id/right"
+            app:layout_constraintStart_toEndOf="@id/lives_holder"
+            app:layout_constraintEnd_toStartOf="@id/awards_holder"
             >
 
             <View
@@ -152,7 +152,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/right"
+            android:id="@+id/awards_holder"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintDimensionRatio="2:1"
