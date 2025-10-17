@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/QuizRookie"
+        layout="@layout/item_achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/StreakStarter"
+        />
+
+    <include
+        android:id="@+id/StreakStarter"
+        layout="@layout/item_achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/QuizRookie"
+        app:layout_constraintEnd_toStartOf="@id/LuckyGuess"
+        />
+
+    <include
+        android:id="@+id/LuckyGuess"
+        layout="@layout/item_achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/StreakStarter"
+        app:layout_constraintEnd_toStartOf="@id/Explorer"
+        />
+
+    <include
+        android:id="@+id/Explorer"
+        layout="@layout/item_achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/LuckyGuess"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <include
+        android:id="@+id/TriviaChamp"
+        layout="@layout/item_achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/QuizRookie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/StreakStarter"
+        />
+
+    <include
+        android:id="@+id/Collector"
+        layout="@layout/item_achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/QuizRookie"
+        app:layout_constraintStart_toEndOf="@id/QuizRookie"
+        app:layout_constraintEnd_toStartOf="@id/LuckyGuess"
+        />
+
+    <include
+        android:id="@+id/Legend"
+        layout="@layout/item_achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/QuizRookie"
+        app:layout_constraintStart_toEndOf="@id/StreakStarter"
+        app:layout_constraintEnd_toStartOf="@id/Explorer"
+        />
+
+    <include
+        android:id="@+id/Untouchable"
+        layout="@layout/item_achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/QuizRookie"
+        app:layout_constraintStart_toEndOf="@id/LuckyGuess"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <include
+        android:id="@+id/QuickThinker"
+        layout="@layout/item_achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Untouchable"
+        app:layout_constraintStart_toStartOf="@id/TriviaChamp"
+        app:layout_constraintEnd_toEndOf="@id/TriviaChamp"
+        />
+
+    <include
+        android:id="@+id/CollectorII"
+        layout="@layout/item_achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Untouchable"
+        app:layout_constraintStart_toStartOf="@id/Collector"
+        app:layout_constraintEnd_toEndOf="@id/Collector"
+        />
+
+    <include
+        android:id="@+id/LuckyGuessII"
+        layout="@layout/item_achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Untouchable"
+        app:layout_constraintStart_toStartOf="@id/Legend"
+        app:layout_constraintEnd_toEndOf="@id/Legend"
+        />
+
+    <TextView
+        style="@style/Typography.body.small"
+        android:textColor="@color/Shade_Secondary"
+        android:text="@string/click_on_achievement_to_view_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/QuickThinker"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
