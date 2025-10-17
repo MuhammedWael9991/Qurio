@@ -110,7 +110,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/how_to_get"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf=""
+        app:layout_constraintEnd_toEndOf="parent"
         android:paddingHorizontal="12dp"
         android:layout_marginTop="4dp"
         />
