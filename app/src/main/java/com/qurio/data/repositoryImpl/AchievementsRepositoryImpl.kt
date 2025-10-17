@@ -116,4 +116,8 @@ class AchievementsRepositoryImpl @Inject constructor(
             dao.inertAll(defaultAchievements)
         }
     }
+
+    override suspend fun getAchievements(): List<AchievementsEntity> {
+        return dao.getAchievements()
+    }
 }

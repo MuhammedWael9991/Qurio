@@ -11,17 +11,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:gravity="center"
+        android:layout_marginTop="8dp"
         >
 
         <ImageView
-            android:id="@+id/character_avatar"
+            android:id="@+id/image"
             android:src="@drawable/quiz_rookie_locked"
             android:layout_width="60dp"
             android:layout_height="60dp"/>
 
         <TextView
-            android:id="@+id/character_name"
-            style="@style/Typography.label.large"
+            android:id="@+id/name"
+            style="@style/Typography.label.medium"
             android:textColor="@color/Shade_Tertiary"
             android:text="@string/quiz_rookie"
             android:layout_width="wrap_content"

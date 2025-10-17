@@ -14,5 +14,7 @@ interface AchievementsDao {
 
     @Query("SELECT COUNT(*) FROM achievements")
     suspend fun getCount(): Int
+    @Query("SELECT * FROM achievements")
+    suspend fun getAchievements(): List<AchievementsEntity>
 
 }
