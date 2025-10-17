@@ -7,5 +7,6 @@ interface UserRepository {
     suspend fun initializeUserData()
     suspend fun getUserData(): UserEntity
     suspend fun updateUserPoints(point: Int)
+    suspend fun getPoints(): Int
 
 }

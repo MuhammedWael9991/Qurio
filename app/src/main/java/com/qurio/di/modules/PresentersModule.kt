@@ -41,11 +41,6 @@ abstract class PresentersModule {
     ): LastGamesContract.Presenter
 
     @Binds
-    abstract fun bindCharacterPresenter(
-        presenter: CharacterPresenter
-    ): CharacterContract.Presenter
-
-    @Binds
     abstract fun bindGamePresenter(
         presenter: GamePresenter
     ): GameContract.Presenter
@@ -55,5 +50,9 @@ abstract class PresentersModule {
         presenter: ResultPresenter
     ): ResultContract.Presenter
 
+    @Binds
+    abstract fun bindCharacterPresenter(
+        presenter: CharacterPresenter
+    ): CharacterContract.Presenter
 
 }

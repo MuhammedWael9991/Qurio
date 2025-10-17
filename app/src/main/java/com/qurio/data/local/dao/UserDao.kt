@@ -17,5 +17,7 @@ interface UserDao {
     suspend fun getUser(): UserEntity
     @Query("UPDATE users SET totalPoints = totalPoints + :point WHERE id = 1")
     suspend fun updateUserPoints(point: Int)
+    @Query("SELECT totalPoints FROM users WHERE id = 1")
+    suspend fun getPoints(): Int
 
 }

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,28 +16,31 @@
         >
 
         <include
-            android:id="@+id/character"
-            layout="@layout/item_character"
-            android:layout_width="wrap_content"
+            android:id="@+id/characters_list"
+            layout="@layout/layout_characters_list"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="51dp"
-            android:layout_marginBottom="22dp"
-            android:visibility="gone"
+            android:visibility="visible"
             />
 
-        <com.qurio.ui.components.CharacterButtons
+        <include
+            layout="@layout/layout_character_button"
+            android:id="@+id/layout_confirm_cancel_buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/characters_list"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/character"
             android:layout_marginTop="22dp"
+            android:layout_marginBottom="36dp"
             android:paddingBottom="36dp"
             android:layout_marginHorizontal="12dp"
-            android:visibility="gone"
+            android:visibility="visible"
             />
 
         <include
@@ -53,31 +56,37 @@
             android:visibility="gone"
             />
 
-        <com.qurio.ui.components.CharacterButtons
+        <include
+            layout="@layout/layout_character_button"
+            android:id="@+id/layout_ok_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/details"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/details"
+            android:layout_marginBottom="36dp"
             android:layout_marginTop="106dp"
-            android:paddingBottom="36dp"
             android:layout_marginHorizontal="12dp"
-            app:buttonsType="ok"
-            android:visibility="gone"
+            android:visibility="visible"
             />
 
-        <com.qurio.ui.components.CharacterButtons
+
+        <include
+            android:id="@+id/layout_buy_ok_button"
+            layout="@layout/layout_character_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/details"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/details"
+            android:layout_marginBottom="36dp"
             android:layout_marginTop="106dp"
-            android:paddingBottom="36dp"
             android:layout_marginHorizontal="12dp"
-            app:buttonsType="buy_ok"
-            android:visibility="gone"
+            android:visibility="visible"
             />
+
 
         <include
             android:id="@+id/buy"
@@ -89,23 +98,26 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="92dp"
             android:layout_marginBottom="24dp"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
-        <com.qurio.ui.components.CharacterButtons
+        <include
+            layout="@layout/layout_character_button"
+            android:id="@+id/layout_buy_cancel_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/buy"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/buy"
+            android:layout_marginBottom="36dp"
             android:layout_marginTop="24dp"
-            android:paddingBottom="36dp"
             android:layout_marginHorizontal="12dp"
-            app:buttonsType="buy_cancel"
             android:visibility="visible"
             />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <ImageView
         android:id="@+id/header"

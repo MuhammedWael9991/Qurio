@@ -7,7 +7,8 @@ import androidx.room.PrimaryKey
 data class CharactersEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,
-    val image: Int,
+    val image: String,
+    val lockedImage: String,
     val price: Int,
     val age: String,
     val isOwned: Boolean,

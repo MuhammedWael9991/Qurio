@@ -1,6 +1,5 @@
 package com.qurio.data.repositoryImpl
 
-import com.qurio.R
 import com.qurio.data.local.dao.CharactersDao
 import com.qurio.data.local.entity.CharactersEntity
 import com.qurio.data.repository.CharactersRepository
@@ -16,7 +15,8 @@ class CharactersRepositoryImpl @Inject constructor(
                 CharactersEntity(
                     id = 1,
                     name = "Rika",
-                    image = R.drawable.avatar_rika,
+                    image = "avatar_rika",
+                    lockedImage = "avatar_rika",
                     price = 0,
                     age = "Age: 12 Sunblooms",
                     isOwned = true,
@@ -26,7 +26,8 @@ class CharactersRepositoryImpl @Inject constructor(
                 CharactersEntity(
                     id = 2,
                     name = "Kaiyo",
-                    image = R.drawable.avatar_kaiyo,
+                    image = "avatar_kaiyo",
+                    lockedImage = "ch_kaiyo_locked",
                     price = 300,
                     age = "Age: 14 Storms",
                     isOwned = false,
@@ -36,7 +37,8 @@ class CharactersRepositoryImpl @Inject constructor(
                 CharactersEntity(
                     id = 3,
                     name = "Mimi",
-                    image = R.drawable.avatar_mimi,
+                    image = "avatar_mimi",
+                    lockedImage = "ch_mimi_locked",
                     price = 700,
                     age = "Age: 10 Volcano Puffs",
                     isOwned = false,
@@ -46,7 +48,8 @@ class CharactersRepositoryImpl @Inject constructor(
                 CharactersEntity(
                     id = 4,
                     name = "Yoru",
-                    image = R.drawable.avatar_yoru,
+                    image = "avatar_yoru",
+                    lockedImage = "ch_yoru_locked",
                     price = 1000,
                     age = "Age: 13 Shadows",
                     isOwned = false,
@@ -56,7 +59,8 @@ class CharactersRepositoryImpl @Inject constructor(
                 CharactersEntity(
                     id = 5,
                     name = "Kuro",
-                    image = R.drawable.avatar_kuro,
+                    image = "avatar_kuro",
+                    lockedImage = "ch_kuro_locked",
                     price = 3000,
                     age = "Age: 15 Thunder Beats",
                     isOwned = false,
@@ -66,7 +70,8 @@ class CharactersRepositoryImpl @Inject constructor(
                 CharactersEntity(
                     id = 6,
                     name = "Miko",
-                    image = R.drawable.avatar_miko,
+                    image = "avatar_kuro",
+                    lockedImage = "ch_kuro_locked",
                     price = 7000,
                     age = "Age: 11 Leaf Turns",
                     isOwned = false,
@@ -76,7 +81,8 @@ class CharactersRepositoryImpl @Inject constructor(
                 CharactersEntity(
                     id = 7,
                     name = "Aori",
-                    image = R.drawable.avatar_aori,
+                    image = "avatar_aori",
+                    lockedImage = "ch_aori_locked",
                     price = 12000,
                     age = "Age: 13 Blade Echoes",
                     isOwned = false,
@@ -86,7 +92,8 @@ class CharactersRepositoryImpl @Inject constructor(
                 CharactersEntity(
                     id = 8,
                     name = "Nara",
-                    image = R.drawable.avatar_nara,
+                    image = "avatar_nara",
+                    lockedImage = "ch_nara_locked",
                     price = 30000,
                     age = "Age: 12 Crystal Songs",
                     isOwned = false,
@@ -96,7 +103,8 @@ class CharactersRepositoryImpl @Inject constructor(
                 CharactersEntity(
                     id = 9,
                     name = "Renji",
-                    image = R.drawable.avatar_renji,
+                    image = "avatar_renji",
+                    lockedImage = "ch_renji_locked",
                     price = 50000,
                     age = "Age: 11 Hero Coins",
                     isOwned = false,
@@ -107,6 +115,14 @@ class CharactersRepositoryImpl @Inject constructor(
 
             dao.insertAll(defaultCharacters)
         }
+    }
+
+    override suspend fun getAllCharacters(): List<CharactersEntity> {
+        return dao.getAllCharacters()
+    }
+
+    override suspend fun buyCharacter(characterId: Int) {
+        dao.buyCharacter(characterId)
     }
 
 }

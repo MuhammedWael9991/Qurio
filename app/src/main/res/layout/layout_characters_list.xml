@@ -1,6 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rvCharacters"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/rika"
+        layout="@layout/item_character"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/kaiyo"
+        />
+
+    <include
+        android:id="@+id/kaiyo"
+        layout="@layout/item_character"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/rika"
+        app:layout_constraintEnd_toStartOf="@id/mimi"
+        />
+
+    <include
+        android:id="@+id/mimi"
+        layout="@layout/item_character"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/kaiyo"
+        app:layout_constraintEnd_toStartOf="@id/yoru"
+        />
+
+    <include
+        android:id="@+id/yoru"
+        layout="@layout/item_character"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/mimi"
+        app:layout_constraintEnd_toStartOf="@id/kuro"
+        />
+
+    <include
+        android:id="@+id/kuro"
+        layout="@layout/item_character"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/yoru"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <include
+        android:id="@+id/miko"
+        layout="@layout/item_character"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/mimi"
+        app:layout_constraintStart_toStartOf="@id/rika"
+        app:layout_constraintEnd_toEndOf="@id/rika"
+        />
+
+    <include
+        android:id="@+id/aori"
+        layout="@layout/item_character"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/kaiyo"
+        app:layout_constraintStart_toStartOf="@id/kaiyo"
+        app:layout_constraintEnd_toEndOf="@id/kaiyo"
+        />
+
+    <include
+        android:id="@+id/nara"
+        layout="@layout/item_character"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/mimi"
+        app:layout_constraintStart_toStartOf="@id/mimi"
+        app:layout_constraintEnd_toEndOf="@id/mimi"
+        />
+
+    <include
+        android:id="@+id/renji"
+        layout="@layout/item_character"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/yoru"
+        app:layout_constraintStart_toStartOf="@id/yoru"
+        app:layout_constraintEnd_toEndOf="@id/yoru"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,4 +31,8 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun updateUserPoints(point: Int) {
         dao.updateUserPoints(point)
     }
+
+    override suspend fun getPoints(): Int {
+        return dao.getPoints()
+    }
 }
