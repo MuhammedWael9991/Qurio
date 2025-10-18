@@ -3,6 +3,7 @@ package com.qurio.ui.screen.achievements
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.qurio.QurioApp
 import com.qurio.R
 import com.qurio.data.local.entity.AchievementsEntity
@@ -96,6 +97,9 @@ class AchievementFragment: BaseDialogFragment<DialogAchievementBinding>(DialogAc
         binding.headerText.text = achievement.title
         if (achievement.isAchieved) {
             binding.shareOkButtonsLayout.visibility = View.VISIBLE
+            binding.shareButton.visibility = View.VISIBLE
+            binding.okDetailsOwnButton.visibility = View.VISIBLE
+            Toast.makeText(requireContext(), "Achievement unlocked!", Toast.LENGTH_SHORT).show()
         } else {
             binding.okDetailsButton.visibility = View.VISIBLE
         }
