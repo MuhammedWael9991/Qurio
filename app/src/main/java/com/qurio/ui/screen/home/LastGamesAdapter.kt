@@ -16,6 +16,11 @@ class LastGamesAdapter(
                 binding.lastGameDate.text = lastGame.date
                 binding.lastGameTitle.text = lastGame.category
                 binding.duration.text = lastGame.duration
+                if (lastGame.points < 0) {
+                    binding.lastGamesPoitns.setTextColor(binding.root.context.getColor(com.qurio.R.color.Red))
+                } else {
+                    binding.lastGamesPoitns.setTextColor(binding.root.context.getColor(com.qurio.R.color.Shade_Primary))
+                }
                 binding.lastGamesPoitns.text = lastGame.points.toString()
                 binding.lastGameStars.text = lastGame.stars.toString()
             }

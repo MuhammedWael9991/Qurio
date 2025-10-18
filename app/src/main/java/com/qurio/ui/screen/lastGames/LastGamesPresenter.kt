@@ -1,5 +1,6 @@
 package com.qurio.ui.screen.lastGames
 
+import android.util.Log
 import com.qurio.data.repository.LastGamesRepository
 import jakarta.inject.Inject
 import kotlinx.coroutines.CoroutineScope
