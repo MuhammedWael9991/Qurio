@@ -59,6 +59,8 @@ class GamesFragment() : BaseFragment<FragmentGamesBinding>(FragmentGamesBinding:
         binding.scienceCard.setOnClickListener { presenter.onClickGame(categoryId = 17) }
         binding.societyAndCultureCard.setOnClickListener { presenter.onClickGame(categoryId = 24) }
         binding.sportAndLeisureCard.setOnClickListener { presenter.onClickGame(categoryId = 24) }
+        binding.topBar.root.setOnClickListener { findNavController().popBackStack() }
+
     }
 
 }
