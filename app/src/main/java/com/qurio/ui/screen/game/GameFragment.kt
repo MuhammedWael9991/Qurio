@@ -2,6 +2,7 @@ package com.qurio.ui.screen.game
 
 import android.animation.ValueAnimator
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -69,9 +70,14 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
     }
 
     override fun showQuestion(question: Question) {
+        val decodedQuestion = Html.fromHtml(question.question, Html.FROM_HTML_MODE_LEGACY).toString()
+        val decodedCorrectAnswer = Html.fromHtml(question.correctAnswer, Html.FROM_HTML_MODE_LEGACY).toString()
+        val decodedIncorrectAnswers = question.incorrectAnswers.map {
+            Html.fromHtml(it, Html.FROM_HTML_MODE_LEGACY).toString()
+        }
         binding.livesHolder.visibility = View.VISIBLE
-        binding.questionHolder.questionText.text = question.question
-        val answers = question.incorrectAnswers + question.correctAnswer
+        binding.questionHolder.questionText.text = decodedQuestion
+        val answers = decodedIncorrectAnswers + decodedCorrectAnswer
         val shuffledAnswers = answers.shuffled()
         binding.questionAnswers.answerText1.text = shuffledAnswers[0]
         binding.questionAnswers.answerText2.text = shuffledAnswers[1]
