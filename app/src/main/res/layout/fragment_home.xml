@@ -23,11 +23,17 @@
             android:orientation="vertical"
             android:paddingBottom="24dp">
 
-            <com.qurio.ui.components.TopBar
+            <include
+                layout="@layout/top_bar"
                 android:id="@+id/top_bar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:topBarType="primary" />
+                android:layout_height="wrap_content"/>
+
+<!--            <com.qurio.ui.components.TopBar-->
+<!--                android:id="@+id/top_bar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:topBarType="primary" />-->
 
             <include
                 layout="@layout/statistics"

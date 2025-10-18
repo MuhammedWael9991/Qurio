@@ -10,4 +10,6 @@ interface CharactersRepository {
 
     suspend fun buyCharacter(characterId: Int)
 
+    suspend fun getSelectedCharacter() : CharactersEntity
+
 }

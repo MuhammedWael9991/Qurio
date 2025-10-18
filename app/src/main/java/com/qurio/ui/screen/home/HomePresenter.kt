@@ -1,6 +1,7 @@
 package com.qurio.ui.screen.home
 
 import android.util.Log
+import com.qurio.data.repository.CharactersRepository
 import com.qurio.data.repository.LastGamesRepository
 import com.qurio.data.repository.UserRepository
 import jakarta.inject.Inject
@@ -10,7 +11,8 @@ import kotlinx.coroutines.launch
 
 class HomePresenter @Inject constructor(
     private val userRepository: UserRepository,
-    private val lastGamesRepository: LastGamesRepository
+    private val lastGamesRepository: LastGamesRepository,
+    private val charactersRepository: CharactersRepository
 ) : HomeContract.Presenter {
 
     private var view: HomeContract.View? = null
@@ -65,5 +67,13 @@ class HomePresenter @Inject constructor(
 
     override fun showBuyLivesDialog() {
         view?.navigateToBuyLives()
+    }
+
+    override fun showCharacterData() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val character = charactersRepository.getSelectedCharacter()
+            Log.d("character", "character = $character")
+            view?.characterInfo(character)
+        }
     }
 }

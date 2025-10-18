@@ -19,4 +19,6 @@ interface CharactersDao {
     suspend fun getAllCharacters(): List<CharactersEntity>
     @Query("UPDATE characters SET isOwned = 1 WHERE id = :characterId")
     suspend fun buyCharacter(characterId: Int)
+    @Query("SELECT * FROM characters WHERE isSelected = 1 LIMIT 1")
+    suspend fun getSelectedCharacter(): CharactersEntity
 }

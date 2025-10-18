@@ -125,4 +125,8 @@ class CharactersRepositoryImpl @Inject constructor(
         dao.buyCharacter(characterId)
     }
 
+    override suspend fun getSelectedCharacter(): CharactersEntity {
+        return dao.getSelectedCharacter()
+    }
+
 }

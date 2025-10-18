@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.qurio.QurioApp
 import com.qurio.R
+import com.qurio.data.local.entity.CharactersEntity
 import com.qurio.data.local.entity.LastGamesEntity
 import com.qurio.data.local.entity.UserEntity
 import com.qurio.databinding.FragmentHomeBinding
@@ -26,6 +27,7 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
         super.onViewCreated(view, savedInstanceState)
 
         presenter.attachView(this)
+        presenter.showCharacterData()
         displayGames()
         setupListeners()
         setupRecycler()
@@ -98,6 +100,14 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
             binding.lastGamesRecyclerView.visibility = View.VISIBLE
             lastGamesAdapter.setData(lastGames)
         }
+    }
+
+    override fun characterInfo(character: CharactersEntity) {
+        binding.topBar.topBarPrimary.visibility = View.VISIBLE
+        binding.topBar.topBarSecondary.visibility = View.GONE
+        binding.topBar.avatarName.text = character.name
+        val resId = requireContext().resources.getIdentifier(character.image, "drawable", requireContext().packageName)
+        binding.topBar.avatarImage.setImageResource(resId)
     }
 
     override fun navigateToCharacter() {
@@ -180,14 +190,16 @@ class HomeFragment() : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::in
             presenter.onClickShowAllLastGames()
         }
 
-        binding.topBar.onSettingsClick = {
+        binding.topBar.settingButton.setOnClickListener {
             presenter.showSettingsDialog()
+
         }
 
-        binding.topBar.onClickAvatar = {
+        binding.topBar.avatarImage.setOnClickListener {
             presenter.showCharacterDialog()
 
         }
+
         binding.statistics.awardsHolder.setOnClickListener {
             presenter.showAchievementDialog()
         }

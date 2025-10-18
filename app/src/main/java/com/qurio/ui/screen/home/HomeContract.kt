@@ -1,5 +1,6 @@
 package com.qurio.ui.screen.home
 
+import com.qurio.data.local.entity.CharactersEntity
 import com.qurio.data.local.entity.LastGamesEntity
 import com.qurio.data.local.entity.UserEntity
 import com.qurio.ui.base.BasePresenter
@@ -12,10 +13,10 @@ interface HomeContract {
         fun navigateToDifficultyLevel(category: Int)
         fun displayUserData(user: UserEntity)
         fun displayLastFiveGames(lastGames: List<LastGamesEntity>)
+        fun characterInfo(character: CharactersEntity)
         fun navigateToCharacter()
         fun navigateToAchievements()
         fun navigateToBuyLives()
-
         fun navigateToSettings()
     }
 
@@ -29,5 +30,6 @@ interface HomeContract {
         fun showCharacterDialog()
         fun showAchievementDialog()
         fun showBuyLivesDialog()
+        fun showCharacterData()
     }
 }
