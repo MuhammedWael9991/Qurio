@@ -195,6 +195,7 @@ class CharacterFragment : BaseDialogFragment<DialogCharacterBinding>(DialogChara
             if (characters[1].isOwned) {
                 selectedCharacterId = 1
                 selectedCharacter = characters[selectedCharacterId]
+                presenter.selectCharacter(selectedCharacter)
                 presenter.goToDetailsPage(characters[selectedCharacterId])
                 binding.charactersList.kaiyo.checkedIcon.visibility = View.VISIBLE
                 binding.charactersList.kaiyo.characterName.setTextColor(resources.getColor(R.color.Primary))
@@ -206,6 +207,7 @@ class CharacterFragment : BaseDialogFragment<DialogCharacterBinding>(DialogChara
             if (characters[2].isOwned) {
                 selectedCharacterId = 2
                 selectedCharacter = characters[selectedCharacterId]
+                presenter.selectCharacter(selectedCharacter)
                 presenter.goToDetailsPage(characters[selectedCharacterId])
                 binding.charactersList.mimi.checkedIcon.visibility = View.VISIBLE
                 binding.charactersList.mimi.characterName.setTextColor(resources.getColor(R.color.Primary))
@@ -217,6 +219,7 @@ class CharacterFragment : BaseDialogFragment<DialogCharacterBinding>(DialogChara
             if (characters[3].isOwned) {
                 selectedCharacterId = 3
                 selectedCharacter = characters[selectedCharacterId]
+                presenter.selectCharacter(selectedCharacter)
                 presenter.goToDetailsPage(characters[selectedCharacterId])
                 binding.charactersList.yoru.checkedIcon.visibility = View.VISIBLE
                 binding.charactersList.yoru.characterName.setTextColor(resources.getColor(R.color.Primary))
@@ -228,6 +231,7 @@ class CharacterFragment : BaseDialogFragment<DialogCharacterBinding>(DialogChara
             if (characters[4].isOwned) {
                 selectedCharacterId = 4
                 selectedCharacter = characters[selectedCharacterId]
+                presenter.selectCharacter(selectedCharacter)
                 presenter.goToDetailsPage(characters[selectedCharacterId])
                 binding.charactersList.kuro.checkedIcon.visibility = View.VISIBLE
                 binding.charactersList.kuro.characterName.setTextColor(resources.getColor(R.color.Primary))
@@ -239,6 +243,7 @@ class CharacterFragment : BaseDialogFragment<DialogCharacterBinding>(DialogChara
             if (characters[5].isOwned) {
                 selectedCharacterId = 5
                 selectedCharacter = characters[selectedCharacterId]
+                presenter.selectCharacter(selectedCharacter)
                 presenter.goToDetailsPage(characters[selectedCharacterId])
                 binding.charactersList.miko.checkedIcon.visibility = View.VISIBLE
                 binding.charactersList.miko.characterName.setTextColor(resources.getColor(R.color.Primary))
@@ -250,6 +255,7 @@ class CharacterFragment : BaseDialogFragment<DialogCharacterBinding>(DialogChara
             if (characters[6].isOwned) {
                 selectedCharacterId = 6
                 selectedCharacter = characters[selectedCharacterId]
+                presenter.selectCharacter(selectedCharacter)
                 presenter.goToDetailsPage(characters[selectedCharacterId])
                 binding.charactersList.aori.checkedIcon.visibility = View.VISIBLE
                 binding.charactersList.aori.characterName.setTextColor(resources.getColor(R.color.Primary))
@@ -261,6 +267,7 @@ class CharacterFragment : BaseDialogFragment<DialogCharacterBinding>(DialogChara
             if (characters[7].isOwned) {
                 selectedCharacterId = 7
                 selectedCharacter = characters[selectedCharacterId]
+                presenter.selectCharacter(selectedCharacter)
                 presenter.goToDetailsPage(characters[selectedCharacterId])
                 binding.charactersList.nara.checkedIcon.visibility = View.VISIBLE
                 binding.charactersList.nara.characterName.setTextColor(resources.getColor(R.color.Primary))
@@ -272,6 +279,7 @@ class CharacterFragment : BaseDialogFragment<DialogCharacterBinding>(DialogChara
             if (characters[8].isOwned) {
                 selectedCharacterId = 8
                 selectedCharacter = characters[selectedCharacterId]
+                presenter.selectCharacter(selectedCharacter)
                 presenter.goToDetailsPage(characters[selectedCharacterId])
                 binding.charactersList.renji.checkedIcon.visibility = View.VISIBLE
                 binding.charactersList.renji.characterName.setTextColor(resources.getColor(R.color.Primary))
@@ -289,7 +297,7 @@ class CharacterFragment : BaseDialogFragment<DialogCharacterBinding>(DialogChara
             }
         }
         binding.layoutConfirmCancelButtons.confirmButton.setOnClickListener {
-            presenter.selectCharacter(selectedCharacter)
+            dismiss()
         }
         binding.layoutOkButton.okButton.setOnClickListener {
             dismiss()
