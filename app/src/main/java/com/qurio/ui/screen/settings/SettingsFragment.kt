@@ -52,6 +52,9 @@ class SettingsFragment: BaseDialogFragment<DialogSettingsBinding>(DialogSettings
         binding.saveButton.setOnClickListener {
             Toast.makeText(requireContext(), "Soon!", Toast.LENGTH_SHORT).show()
         }
+        binding.exitButton.setOnClickListener {
+            dismiss()
+        }
     }
 
 }

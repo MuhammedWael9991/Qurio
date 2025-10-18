@@ -166,6 +166,10 @@ class AchievementFragment: BaseDialogFragment<DialogAchievementBinding>(DialogAc
 
         binding.shareButton.setOnClickListener {
 
+
+        }
+        binding.exitButton.setOnClickListener {
+            dismiss()
         }
         binding.okDetailsOwnButton.setOnClickListener {
 

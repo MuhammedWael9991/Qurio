@@ -51,6 +51,9 @@ class BuyLifeFragment: BaseDialogFragment<DialogBuyLifeBinding>(DialogBuyLifeBin
         binding.cancel.setOnClickListener {
             dismiss()
         }
+        binding.exitButton.setOnClickListener {
+            dismiss()
+        }
     }
 
     override fun closeDialog() {

@@ -274,35 +274,30 @@ class CharacterFragment : BaseDialogFragment<DialogCharacterBinding>(DialogChara
     fun setupListener() {
         binding.layoutConfirmCancelButtons.cancelButton.setOnClickListener {
             if (currentPage == "character") {
-                Toast.makeText(requireContext(), "Cancel in character", Toast.LENGTH_SHORT).show()
                 dismiss()
             }else {
-                Toast.makeText(requireContext(), "Cancel in buy", Toast.LENGTH_SHORT).show()
                 presenter.getAllCharacters()
             }
         }
         binding.layoutConfirmCancelButtons.confirmButton.setOnClickListener {
-            Toast.makeText(requireContext(), "Confirm", Toast.LENGTH_SHORT).show()
             presenter.buyCharacter(selectedCharacter)
         }
         binding.layoutOkButton.okButton.setOnClickListener {
-            Toast.makeText(requireContext(), "Ok", Toast.LENGTH_SHORT).show()
             dismiss()
         }
         binding.layoutBuyOkButton.okBuyButton.setOnClickListener {
-            Toast.makeText(requireContext(), "ok in details", Toast.LENGTH_SHORT).show()
             dismiss()
         }
         binding.layoutBuyOkButton.buyButton.setOnClickListener {
-            Toast.makeText(requireContext(), "Buy in details", Toast.LENGTH_SHORT).show()
             presenter.goToBuyCharacter(selectedCharacter)
         }
         binding.layoutBuyCancelButton.buyCharacterCancelButton.setOnClickListener {
-            Toast.makeText(requireContext(), "cancel in buy character", Toast.LENGTH_SHORT).show()
             dismiss()
         }
         binding.layoutBuyCancelButton.buyCancelButton.setOnClickListener{
-            Toast.makeText(requireContext(), "Buy in buy character", Toast.LENGTH_SHORT).show()
+            dismiss()
+        }
+        binding.exitButton.setOnClickListener {
             dismiss()
         }
     }
