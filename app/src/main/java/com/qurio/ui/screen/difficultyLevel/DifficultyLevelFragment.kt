@@ -17,9 +17,9 @@ class DifficultyLevelFragment : BaseDialogFragment<DialogDifficultyLevelBinding>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        resetSelection()
         initClickListeners()
     }
-
 
     private fun initClickListeners() {
         binding.easy.setOnClickListener { selectDifficulty(DifficultyLevel.EASY) }
@@ -77,8 +77,22 @@ class DifficultyLevelFragment : BaseDialogFragment<DialogDifficultyLevelBinding>
                 binding.hardText.setTextColor(resources.getColor(R.color.On_primary))
             }
         }
+        binding.confirmButton.isEnabled = true
+        binding.confirmButton.background = resources.getDrawable(R.drawable.primary_button_bg)
     }
 
+    private fun resetSelection() {
+        selectedLevel = null
+        binding.confirmButton.isEnabled = false
+        binding.confirmButton.background = resources.getDrawable(R.drawable.primary_button_disabled_bg)
+        binding.easy.setBackgroundResource(R.drawable.result_info_background)
+        binding.medium.setBackgroundResource(R.drawable.result_info_background)
+        binding.hard.setBackgroundResource(R.drawable.result_info_background)
+
+        binding.easyText.setTextColor(resources.getColor(R.color.Shade_Secondary))
+        binding.mediumText.setTextColor(resources.getColor(R.color.Shade_Secondary))
+        binding.hardText.setTextColor(resources.getColor(R.color.Shade_Secondary))
+    }
     enum class DifficultyLevel {
         EASY, MEDIUM, HARD
     }
