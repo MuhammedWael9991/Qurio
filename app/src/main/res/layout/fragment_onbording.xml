@@ -8,9 +8,9 @@
 
     <TextView
         android:id="@+id/title_large"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_width="490dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/fredoka_bold"
         android:gravity="center"
         android:shadowColor="@color/Shade_Primary"
@@ -20,7 +20,10 @@
         android:textSize="44sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-20dp"
+        android:alpha="0.15"
+        />
 
     <LinearLayout
         android:id="@+id/text_container"
