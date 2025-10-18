@@ -131,9 +131,12 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
         binding.timer.durationText.text = "$remaining Sec"
 
         val parentWidth = binding.timer.root.width
+        val offset = 100
+
         if (parentWidth > 0) {
+            val availableWidth = parentWidth - offset
             val progress = remaining.toFloat() / totalSeconds
-            val newWidth = (parentWidth * progress).toInt()
+            val newWidth = (availableWidth * progress).toInt()
 
             ValueAnimator.ofInt(binding.timer.timerBar.width, newWidth).apply {
                 duration = 300
@@ -145,6 +148,7 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
                 start()
             }
         }
+
     }
 
     override fun showTimeUp() {
