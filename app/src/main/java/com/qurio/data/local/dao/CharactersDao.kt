@@ -21,4 +21,10 @@ interface CharactersDao {
     suspend fun buyCharacter(characterId: Int)
     @Query("SELECT * FROM characters WHERE isSelected = 1 LIMIT 1")
     suspend fun getSelectedCharacter(): CharactersEntity
+
+    @Query("UPDATE characters SET isSelected = 1 WHERE id = :characterId")
+    suspend fun selectCharacter(characterId: Int)
+
+    @Query("UPDATE characters SET isSelected = 0 WHERE id = :previousSelectedId")
+    suspend fun unselectCharacter(previousSelectedId: Int)
 }

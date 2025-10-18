@@ -12,4 +12,6 @@ interface CharactersRepository {
 
     suspend fun getSelectedCharacter() : CharactersEntity
 
+    suspend fun selectCharacter(characterId: Int)
+
 }

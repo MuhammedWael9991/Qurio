@@ -129,4 +129,10 @@ class CharactersRepositoryImpl @Inject constructor(
         return dao.getSelectedCharacter()
     }
 
+    override suspend fun selectCharacter(characterId: Int) {
+        val selectedCharacter = dao.getSelectedCharacter().id
+        dao.unselectCharacter(selectedCharacter)
+        dao.selectCharacter(characterId)
+    }
+
 }

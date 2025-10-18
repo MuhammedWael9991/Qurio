@@ -21,6 +21,7 @@ interface CharacterContract {
         fun buyCharacter(character: CharactersEntity)
         fun goToBuyCharacter(character: CharactersEntity)
         fun getUserPoints()
+        fun selectCharacter(selectedCharacter: CharactersEntity)
     }
 
 }

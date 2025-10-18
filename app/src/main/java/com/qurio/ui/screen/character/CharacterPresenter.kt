@@ -71,7 +71,16 @@ class CharacterPresenter @Inject constructor(
             }catch (e: Exception) {
                 view?.showError(e.message.toString())
             }
+        }
+    }
 
+    override fun selectCharacter(selectedCharacter: CharactersEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                characterRepository.selectCharacter(selectedCharacter.id)
+            }catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
         }
     }
 }
