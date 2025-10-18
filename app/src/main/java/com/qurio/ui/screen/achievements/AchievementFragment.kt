@@ -92,6 +92,7 @@ class AchievementFragment: BaseDialogFragment<DialogAchievementBinding>(DialogAc
         binding.achievementDetails.howToGetDescription.text = achievement.howToGetIt
         binding.achievementDetails.image.setImageResource(imageRes)
         binding.achievementDetails.imageBg.visibility = if (achievement.isAchieved) View.VISIBLE else View.GONE
+        binding.headerText.text = achievement.title
         if (achievement.isAchieved) {
             binding.shareOkButtonsLayout.visibility = View.VISIBLE
         } else {
