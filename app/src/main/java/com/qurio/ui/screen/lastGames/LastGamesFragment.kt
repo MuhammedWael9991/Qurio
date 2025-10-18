@@ -5,6 +5,7 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.qurio.QurioApp
+import com.qurio.R
 import com.qurio.data.local.entity.LastGamesEntity
 import com.qurio.databinding.FragmentLastGamesBinding
 import com.qurio.ui.base.BaseFragment
@@ -28,9 +29,11 @@ class LastGamesFragment: BaseFragment<FragmentLastGamesBinding>(FragmentLastGame
     override fun onViewCreated(view: android.view.View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.attachView(this)
+        binding.topBar.title.text = getString(R.string.last_games)
+        binding.topBar
         setupRecycler()
         presenter.loadLastGames()
-        binding.topBar.setOnClickListener {
+        binding.topBar.root.setOnClickListener {
             presenter.onClickBack()
         }
 
