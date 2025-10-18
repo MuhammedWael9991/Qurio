@@ -37,6 +37,7 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
         Log.d("args", "args= ${args.category}, ${args.difficulty}, ${args.amount}")
         presenter.getGameQuestions(args.category, args.difficulty, args.amount)
         initClickListeners()
+        presenter.getUserLives()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,6 +69,7 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
     }
 
     override fun showQuestion(question: Question) {
+        binding.livesHolder.visibility = View.VISIBLE
         binding.questionHolder.questionText.text = question.question
         val answers = question.incorrectAnswers + question.correctAnswer
         val shuffledAnswers = answers.shuffled()
@@ -166,6 +168,10 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
         playSequentialBounce(bounceViews)
     }
 
+    override fun showLives(lives: Int) {
+        binding.livesNumber.text = lives.toString()
+    }
+
     override fun showMinus() {
         binding.minusView.root.visibility = View.VISIBLE
         val minusViews = listOf(
@@ -186,6 +192,7 @@ class GameFragment: BaseFragment<FragmentGameBinding>(FragmentGameBinding::infla
         binding.checkAnswersButton.visibility = View.GONE
         binding.skipAnswersButton.visibility = View.GONE
         binding.timer.root.visibility = View.GONE
+        binding.livesHolder.visibility = View.GONE
     }
 
     fun showViews() {

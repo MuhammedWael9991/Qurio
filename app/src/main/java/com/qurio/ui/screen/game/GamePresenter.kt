@@ -4,6 +4,7 @@ import android.os.CountDownTimer
 import android.util.Log
 import com.qurio.data.remote.model.Question
 import com.qurio.data.repository.QuestionRepository
+import com.qurio.data.repository.UserRepository
 import jakarta.inject.Inject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +12,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class GamePresenter @Inject constructor(
-    private val questionRepository: QuestionRepository
+    private val questionRepository: QuestionRepository,
+    private val userRepository: UserRepository
 ): GameContract.Presenter {
 
     private var view: GameContract.View? = null
@@ -93,6 +95,7 @@ class GamePresenter @Inject constructor(
             view?.showCorrectAnswer()
         } else {
             inCorrect++
+            score--
             view?.showWrongAnswer()
         }
     }
@@ -139,6 +142,18 @@ class GamePresenter @Inject constructor(
 
     override fun updateQuestionNumber() {
         view?.updateCurrentQuestionNumber(currentQuestionIndex + 1, questions.size)
+    }
+
+    override fun getUserLives() {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val lives = userRepository.getUserData().lives
+                Log.d("lives", "lives = $lives ")
+                view?.showLives(lives)
+            } catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
+        }
     }
 
 }

@@ -29,6 +29,33 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:topBarType="secondary"
                 />
+            <LinearLayout
+                android:id="@+id/lives_holder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/top_bar"
+                app:layout_constraintBottom_toBottomOf="@id/top_bar"
+                app:layout_constraintEnd_toEndOf="@id/top_bar"
+                android:orientation="horizontal"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:src="@drawable/ic_life"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="4dp"/>
+
+                <TextView
+                    android:id="@+id/lives_number"
+                    style="@style/Typography.label.medium"
+                    android:text="0"
+                    android:textColor="@color/On_primary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
 
             <include
                 android:id="@+id/timer"
