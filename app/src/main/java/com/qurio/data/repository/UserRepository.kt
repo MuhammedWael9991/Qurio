@@ -10,4 +10,6 @@ interface UserRepository {
     suspend fun getPoints(): Int
     suspend fun buyLife()
 
+    suspend fun updateUserAwards(number: Int)
+
 }

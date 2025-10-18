@@ -29,6 +29,7 @@ class ResultFragment: BaseFragment<FragmentResultBinding>(FragmentResultBinding:
         presenter.storeGameResult(args.category, args.score, starsNumber, args.totalTime, args.date)
         storeUsePoints()
         initListener()
+        presenter.unlockAchievement(1)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -113,6 +114,13 @@ class ResultFragment: BaseFragment<FragmentResultBinding>(FragmentResultBinding:
             two -> 2
             three -> 3
             else -> 0
+        }
+
+        when(starsNumber) {
+            1 -> presenter.unlockAchievement(2)
+            2 -> presenter.unlockAchievement(3)
+            3 -> presenter.unlockAchievement(4)
+            else -> {}
         }
 
     }

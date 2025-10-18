@@ -43,8 +43,8 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideUserRepository(dao: UserDao): UserRepository {
-        return UserRepositoryImpl(dao)
+    fun provideUserRepository(userDao: UserDao, achievementDao: AchievementsDao): UserRepository {
+        return UserRepositoryImpl(userDao, achievementDao)
     }
 
     @Provides

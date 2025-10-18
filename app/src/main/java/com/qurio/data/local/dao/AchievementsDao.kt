@@ -19,4 +19,7 @@ interface AchievementsDao {
     @Query("UPDATE achievements SET isAchieved = 1 WHERE id = :id")
     suspend fun unlockAchievement(id: Int)
 
+    @Query("SELECT isAchieved FROM achievements WHERE id = :achievementId")
+    suspend fun isUnlocked(achievementId: Int): Boolean
+
 }

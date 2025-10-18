@@ -1,6 +1,7 @@
 package com.qurio.ui.screen.result
 
 import com.qurio.data.local.entity.LastGamesEntity
+import com.qurio.data.repository.AchievementsRepository
 import com.qurio.data.repository.LastGamesRepository
 import com.qurio.data.repository.UserRepository
 import jakarta.inject.Inject
@@ -10,7 +11,8 @@ import kotlinx.coroutines.launch
 
 class ResultPresenter @Inject constructor(
     private val userRepository: UserRepository,
-    private val lastGamesRepository: LastGamesRepository
+    private val lastGamesRepository: LastGamesRepository,
+    private val achievementsRepository: AchievementsRepository
 ): ResultContract.Presenter {
 
     private var view: ResultContract.View? = null
@@ -40,6 +42,17 @@ class ResultPresenter @Inject constructor(
                 view?.showError(e.message.toString())
             }
 
+        }
+    }
+
+    override fun unlockAchievement(achievementId: Int) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                achievementsRepository.unlockAchievement(achievementId)
+                userRepository.updateUserAwards(1)
+            }catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
         }
     }
 

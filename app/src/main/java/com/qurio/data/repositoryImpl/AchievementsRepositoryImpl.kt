@@ -124,4 +124,8 @@ class AchievementsRepositoryImpl @Inject constructor(
     override suspend fun unlockAchievement(achievementId: Int) {
         dao.unlockAchievement(achievementId)
     }
+
+    override suspend fun isUnlocked(achievementId: Int): Boolean {
+        return dao.isUnlocked(achievementId)
+    }
 }

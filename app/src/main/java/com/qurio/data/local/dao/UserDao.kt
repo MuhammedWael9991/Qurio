@@ -21,6 +21,8 @@ interface UserDao {
     suspend fun getPoints(): Int
     @Query("UPDATE users SET lives = lives + 1, totalPoints = totalPoints - 200 WHERE id = 1")
     suspend fun buyLife()
+    @Query("UPDATE users SET awards = awards + :number WHERE id = 1")
+    suspend fun updateUserAwards(number: Int)
 
 
 }
