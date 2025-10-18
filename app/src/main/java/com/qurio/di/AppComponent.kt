@@ -16,6 +16,7 @@ import com.qurio.ui.screen.home.HomeFragment
 import com.qurio.ui.screen.lastGames.LastGamesFragment
 import com.qurio.ui.screen.onbording.OnboardingFragment
 import com.qurio.ui.screen.result.ResultFragment
+import com.qurio.ui.screen.settings.SettingsFragment
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -42,6 +43,7 @@ interface AppComponent {
     fun inject(resultFragment: ResultFragment)
     fun inject(achievementFragment: AchievementFragment)
     fun inject(buyLifeFragment: BuyLifeFragment)
+    fun inject(settingsFragment: SettingsFragment)
 
 
     @Component.Builder

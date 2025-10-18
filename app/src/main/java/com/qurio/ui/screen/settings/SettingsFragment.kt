@@ -1,41 +1,57 @@
 package com.qurio.ui.screen.settings
 
 import android.os.Bundle
-import android.view.Gravity
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
-import androidx.fragment.app.DialogFragment
+import android.widget.Toast
+import com.qurio.QurioApp
 import com.qurio.databinding.DialogSettingsBinding
+import com.qurio.ui.base.BaseDialogFragment
+import jakarta.inject.Inject
 
-class SettingsFragment : DialogFragment() {
-    private var _binding: DialogSettingsBinding? = null
-    private val binding get() = _binding!!
+class SettingsFragment: BaseDialogFragment<DialogSettingsBinding>(DialogSettingsBinding::inflate), SettingsContract.View {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = DialogSettingsBinding.inflate(inflater, container, false)
-        return binding.root
+    @Inject
+    lateinit var presenter: SettingsContract.Presenter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        (requireActivity().application as QurioApp)
+            .appComponent
+            .inject(this)
     }
 
-    override fun onStart() {
-        super.onStart()
-        dialog?.window?.apply {
-            setLayout(
-                (resources.displayMetrics.widthPixels * 0.85).toInt(),
-                WindowManager.LayoutParams.WRAP_CONTENT
-            )
-            setBackgroundDrawableResource(android.R.color.transparent)
-            setGravity(Gravity.CENTER)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        presenter.attachView(this)
+        setupListeners()
+    }
+
+
+    override fun onDestroyView() {
+        presenter.detachView()
+        super.onDestroyView()
+    }
+
+    override fun showLoading() {
+        TODO("Not yet implemented")
+    }
+
+    override fun hideLoading() {
+        TODO("Not yet implemented")
+    }
+
+    override fun showError(message: String) {
+        TODO("Not yet implemented")
+    }
+
+    fun setupListeners() {
+        binding.discardButton.setOnClickListener {
+            dismiss()
+        }
+        binding.saveButton.setOnClickListener {
+            Toast.makeText(requireContext(), "Soon!", Toast.LENGTH_SHORT).show()
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

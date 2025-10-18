@@ -75,4 +75,6 @@
     <string name="play_in_at_least_4_different_categories">Play in at least 4 different categories.</string>
     <string name="share_with_friends">Share with friends</string>
     <string name="buy_life">Buy life</string>
+    <string name="save_changes">Save changes</string>
+    <string name="discard">Discard</string>
 </resources>

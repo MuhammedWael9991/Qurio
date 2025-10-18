@@ -18,6 +18,8 @@ import com.qurio.ui.screen.onbording.OnboardingContract
 import com.qurio.ui.screen.onbording.OnboardingPresenter
 import com.qurio.ui.screen.result.ResultContract
 import com.qurio.ui.screen.result.ResultPresenter
+import com.qurio.ui.screen.settings.SettingsContract
+import com.qurio.ui.screen.settings.SettingsPresenter
 import dagger.Binds
 import dagger.Module
 
@@ -68,5 +70,10 @@ abstract class PresentersModule {
     abstract fun bindBuyLifePresenter(
         presenter: BuyLifePresenter
     ): BuyLifeContract.Presenter
+
+    @Binds
+    abstract fun bindSettingsPresenter(
+        presenter: SettingsPresenter
+    ): SettingsContract.Presenter
 
 }

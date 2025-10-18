@@ -65,19 +65,64 @@
             android:layout_marginBottom="36dp"
             >
 
-            <com.qurio.ui.components.QurioButtons
-                android:id="@+id/save_changes_button"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/confirm_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="visible"
+                android:layout_marginHorizontal="12dp"
+                >
+                <FrameLayout
+                    android:id="@+id/save_button"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="3.5:1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/discard_button"
+                    android:background="@drawable/primary_button_bg"
+                    >
 
-            <com.qurio.ui.components.QurioButtons
-                android:id="@+id/discard_button"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="50dp"
-                />
+                    <TextView
+                        style="@style/Typography.label.large"
+                        android:id="@+id/confirm_text"
+                        android:text="@string/save_changes"
+                        android:textColor="@color/On_primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/discard_button"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="3.5:1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/save_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@drawable/button_outlined"
+                    android:layout_marginStart="8dp"
+                    >
+
+                    <TextView
+                        style="@style/Typography.label.large"
+                        android:id="@+id/cancel_text"
+                        android:text="@string/discard"
+                        android:textColor="@color/Primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        />
+
+                </FrameLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 
