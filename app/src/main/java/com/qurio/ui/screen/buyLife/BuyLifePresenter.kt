@@ -21,15 +21,23 @@ class BuyLifePresenter @Inject constructor(
 
     override fun buyLife() {
         CoroutineScope(Dispatchers.IO).launch {
-            userRepository.buyLife()
-            view?.closeDialog()
+            try {
+                userRepository.buyLife()
+                view?.closeDialog()
+            }catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
         }
     }
 
     override fun getUserPoints() {
         CoroutineScope(Dispatchers.IO).launch {
-            val userPoints = userRepository.getPoints()
-            view?.updateUi(userPoints)
+            try {
+                val userPoints = userRepository.getPoints()
+                view?.updateUi(userPoints)
+            }catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
         }
     }
 }

@@ -25,6 +25,7 @@
             />
 
         <LinearLayout
+            android:id="@+id/share_button"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:orientation="horizontal"

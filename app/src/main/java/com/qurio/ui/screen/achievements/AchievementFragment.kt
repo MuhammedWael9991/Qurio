@@ -1,5 +1,6 @@
 package com.qurio.ui.screen.achievements
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.qurio.QurioApp
@@ -165,15 +166,23 @@ class AchievementFragment: BaseDialogFragment<DialogAchievementBinding>(DialogAc
         }
 
         binding.shareButton.setOnClickListener {
-
-
+            val message = "Qurio Quiz Game!\nI just unlocked the \"${binding.achievementDetails.name.text}\" achievement!\nCan you unlock it too? Download the app now! https://play.google.com/store/apps/details?id=${requireActivity().application.packageName}"
+            shareText(message)
         }
         binding.exitButton.setOnClickListener {
             dismiss()
         }
         binding.okDetailsOwnButton.setOnClickListener {
-
+            dismiss()
         }
+    }
+
+    private fun shareText(text: String) {
+        val shareIntent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_SUBJECT, text)
+        }
+        startActivity(Intent.createChooser(shareIntent, "Share with friends"))
     }
 
 }

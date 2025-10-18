@@ -22,8 +22,13 @@ class AchievementPresenter @Inject constructor(
 
     override fun loadAchievements() {
         CoroutineScope(Dispatchers.IO).launch {
-            val achievements = achievementsRepository.getAchievements()
-            view?.displayAchievements(achievements)
+            try {
+                val achievements = achievementsRepository.getAchievements()
+                view?.displayAchievements(achievements)
+            }catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
+
         }
     }
 

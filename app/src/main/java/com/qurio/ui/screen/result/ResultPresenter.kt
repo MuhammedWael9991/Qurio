@@ -25,22 +25,32 @@ class ResultPresenter @Inject constructor(
 
     override fun storeGameResult(category: String, point: Int, stars: Int, duration: String, data: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            lastGamesRepository.insertLastGame(
-                LastGamesEntity(
-                    id = 0,
-                    category = category,
-                    points = point,
-                    stars = stars,
-                    duration = duration,
-                    date = data
+            try {
+                lastGamesRepository.insertLastGame(
+                    LastGamesEntity(
+                        id = 0,
+                        category = category,
+                        points = point,
+                        stars = stars,
+                        duration = duration,
+                        date = data
+                    )
                 )
-            )
+            }catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
+
         }
     }
 
     override fun storeUserPoints(points: Int) {
         CoroutineScope(Dispatchers.IO).launch {
-            userRepository.updateUserPoints(points)
+            try {
+                userRepository.updateUserPoints(points)
+            }
+            catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
         }
     }
 }

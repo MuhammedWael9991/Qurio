@@ -52,9 +52,13 @@ class OnboardingPresenter @Inject constructor(
 
     private fun initGameData(){
         CoroutineScope(Dispatchers.IO).launch {
-            charactersRepository.initCharacters()
-            achievementsRepository.initAchievements()
-            userRepository.initializeUserData()
+            try {
+                charactersRepository.initCharacters()
+                achievementsRepository.initAchievements()
+                userRepository.initializeUserData()
+            }catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
         }
     }
 

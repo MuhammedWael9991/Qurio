@@ -47,9 +47,14 @@ class HomePresenter @Inject constructor(
 
     override fun getLastFiveGames() {
         CoroutineScope(Dispatchers.IO).launch {
-            val lastGames = lastGamesRepository.getLastFiveGames()
-            Log.d("lastGames", "lastGames = $lastGames")
-            view?.displayLastFiveGames(lastGames)
+            try {
+                val lastGames = lastGamesRepository.getLastFiveGames()
+                Log.d("lastGames", "lastGames = $lastGames")
+                view?.displayLastFiveGames(lastGames)
+            }catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
+
         }
     }
 
@@ -71,9 +76,13 @@ class HomePresenter @Inject constructor(
 
     override fun showCharacterData() {
         CoroutineScope(Dispatchers.IO).launch {
-            val character = charactersRepository.getSelectedCharacter()
-            Log.d("character", "character = $character")
-            view?.characterInfo(character)
+            try {
+                val character = charactersRepository.getSelectedCharacter()
+                Log.d("character", "character = $character")
+                view?.characterInfo(character)
+            }catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
         }
     }
 }

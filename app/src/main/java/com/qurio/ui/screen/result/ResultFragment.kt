@@ -1,8 +1,10 @@
 package com.qurio.ui.screen.result
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.qurio.QurioApp
@@ -73,14 +75,31 @@ class ResultFragment: BaseFragment<FragmentResultBinding>(FragmentResultBinding:
     }
 
     fun storeUsePoints() {
-        presenter.storeUserPoints(args.score)
+        if (args.score < 0){
+            presenter.storeUserPoints(0)
+        }else {
+            presenter.storeUserPoints(args.score)
+        }
     }
 
     private fun initListener() {
 
         binding.playAgainButton.setOnClickListener { findNavController().popBackStack() }
         binding.backToHomeButton.setOnClickListener { findNavController().navigate(R.id.resultFragment_to_homeFragment) }
+        binding.shareButton.setOnClickListener {
+            val message = "Qurio Quiz Game!\nI scored ${args.score} points with ${starsNumber} star(s)!\nCan you beat my score? Download the app now! https://play.google.com/store/apps/details?id=${requireActivity().application.packageName}"
+            shareText(message)
+        }
 
+
+    }
+
+    private fun shareText(text: String) {
+        val shareIntent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_SUBJECT, text)
+        }
+        startActivity(Intent.createChooser(shareIntent, "Share with friends"))
     }
 
     private fun setStarsVisibility(one: Boolean, two: Boolean, three: Boolean) {

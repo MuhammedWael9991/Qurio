@@ -1,6 +1,5 @@
 package com.qurio.ui.screen.character
 
-import android.util.Log
 import com.qurio.data.local.entity.CharactersEntity
 import com.qurio.data.repository.CharactersRepository
 import com.qurio.data.repository.UserRepository
@@ -27,8 +26,13 @@ class CharacterPresenter @Inject constructor(
 
     override fun getAllCharacters() {
         CoroutineScope(Dispatchers.IO).launch {
-            val characters = characterRepository.getAllCharacters()
-            view?.showCharacters(characters)
+            try {
+                val characters = characterRepository.getAllCharacters()
+                view?.showCharacters(characters)
+            }catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
+
         }
     }
 
@@ -44,9 +48,14 @@ class CharacterPresenter @Inject constructor(
 
     override fun buyCharacter(character: CharactersEntity) {
         CoroutineScope(Dispatchers.IO).launch {
-            characterRepository.buyCharacter(character.price)
-            userRepository.updateUserPoints(-character.price)
-            view?.exit()
+            try {
+                characterRepository.buyCharacter(character.price)
+                userRepository.updateUserPoints(-character.price)
+                view?.exit()
+            }catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
+
         }
     }
 
@@ -56,9 +65,13 @@ class CharacterPresenter @Inject constructor(
 
     override fun getUserPoints(){
         CoroutineScope(Dispatchers.IO).launch {
-            val points = userRepository.getPoints()
-            view?.getUserPoints(points)
+            try {
+                val points = userRepository.getPoints()
+                view?.getUserPoints(points)
+            }catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
+
         }
     }
-
 }

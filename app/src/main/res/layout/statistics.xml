@@ -246,4 +246,14 @@
         android:visibility="visible"
         />
 
+    <ImageView
+        android:id="@+id/buy_live_icon"
+        android:src="@drawable/ic_buy_life"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

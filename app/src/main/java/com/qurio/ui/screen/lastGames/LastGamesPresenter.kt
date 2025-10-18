@@ -26,8 +26,13 @@ class LastGamesPresenter @Inject constructor(
 
     override fun loadLastGames() {
         CoroutineScope(Dispatchers.IO).launch {
-            val lastGames = lastGamesRepository.getLastGames()
-            view?.showLastGames(lastGames)
+            try {
+                val lastGames = lastGamesRepository.getLastGames()
+                view?.showLastGames(lastGames)
+            }catch (e: Exception) {
+                view?.showError(e.message.toString())
+            }
+
         }
     }
 }
